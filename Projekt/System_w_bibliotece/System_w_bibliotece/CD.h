@@ -4,7 +4,7 @@ class CD :
 	public Resource
 {
 public:
-	void show();
-	void create_id();
+	CD(std::string, std::string, Date, Date, Date, std::string = "brak", bool = true, Person* = nullptr);	
+	void create_id(int);
 };
 

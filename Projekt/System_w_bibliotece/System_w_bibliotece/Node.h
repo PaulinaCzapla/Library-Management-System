@@ -1,6 +1,9 @@
 #pragma once
 #include "Book.h"
-template<class T>
+#include "Movie.h"
+#include "CD.h"
+
+template<typename T>
 class Node 
 {
 	Node* next, *prev;

@@ -1,6 +1,17 @@
 #include "Resource.h"
 
 
+Resource::Resource(std::string id_, std::string name_ , Date release_date_, Date borrow_date_, Date deadline_, std::string title_, bool is_available_, Person* borrower_)
+{
+	this->ID = id_;
+	this->authors_name = name_;
+	this->release_date = release_date_;
+	this->borrow_date = borrow_date_;
+	this->deadline = deadline_;
+	this->title = title_;
+	this->is_available = is_available_;
+	this->borrower = borrower_;
+}
 
 void Resource::change_availability(bool is_available_)
 {

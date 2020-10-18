@@ -1,7 +1,12 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Date.h"
 #include "Person.h"
+#include "Text.h"
+#include "List.h"
+
+
 
 class Resource //klasa abstrakcyjna
 {
@@ -18,9 +23,9 @@ protected:
 	Date deadline;
 
 public:
-	virtual void show() =0;
+	Resource(std::string, std::string, Date, Date, Date, std::string ="brak", bool = true, Person* = nullptr );
 	void change_availability(bool);
-	virtual void create_id()=0;
+	virtual void create_id(int)=0;
 	Resource& operator=(const Resource&);
 	bool operator==(const std::string&);
 	std::ostream& operator<< (std::ostream& );

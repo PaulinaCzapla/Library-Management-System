@@ -1,12 +1,13 @@
 #pragma once
 #include "Resource.h"
+
+
 class Book :
 	public Resource
 {
-	Person* borrower;
 public:
-	void show();
-	void create_id();
+	Book(std::string, std::string, Date, Date, Date, std::string = "brak", bool = true, Person* = nullptr);
+	void create_id(int);
 	
 };
 

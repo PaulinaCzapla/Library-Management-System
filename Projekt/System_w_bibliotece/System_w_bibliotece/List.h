@@ -10,11 +10,11 @@ class List
 
 public: 
 	List();
-	Node<T>* push_front(Node<T>*);
-	Node<T>* delete_element(Node<T>*);
-	void display_list();
-	unsigned size();
-	Node <T>* get_element(std::string); //szukanie elementu po ID
+	Node<T>* push_front(Node<T>*); //dodaje na poczatek listy
+	Node<T>* delete_element(Node<T>*); //usuwa wybrany element
+	void display_list(); //wyœwietla ca³¹ listê 
+	int size(); //zwraca iloœæ elementów listy
+	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
 
 	~List();
 

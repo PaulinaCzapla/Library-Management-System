@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Date.h"
 #include "List.h"
+
 class Person
 {
 	std::string ID;
@@ -10,17 +11,14 @@ class Person
 	std::string address;
 	std::string phone_number;
 	
-	Person* next;
 
-	List <class Book> * books;
-	List <class CD> * cds;
-	List <class Movie> * movies;
+	List <Book*> * books;
+	List <CD*> * cds;
+	List <Movie*> * movies; //listy wskaŸników?
 
 public:
-	void show_books();
-	void show_cds();
-	void show_movies();
-	void show_data();
+	Person(std::string, std::string, Date, std::string = "brak", std::string = "brak", List <Book*>* = nullptr, List <CD*>* = nullptr, List <Movie*>* = nullptr);
+	std::ostream& operator<< (std::ostream&);
 	
 
 };

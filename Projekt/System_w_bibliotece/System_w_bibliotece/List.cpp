@@ -66,11 +66,10 @@ void List<T>::display_list()
         tmp->display();
             tmp = tmp->get_next();
     }
-    
 }
 
 template<typename T>
-unsigned List<T>::size()
+int List<T>::size()
 {
     return this->counter;
 }

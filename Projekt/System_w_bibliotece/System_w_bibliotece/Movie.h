@@ -1,12 +1,11 @@
 #pragma once
 #include "Resource.h"
+
 class Movie :
 	public Resource
 {
-	Movie* next;
 public:
-	void show();
-
-	void create_id();
+	Movie(std::string, std::string, Date, Date, Date, std::string = "brak", bool = true, Person* = nullptr);
+	void create_id(int);
 };
 
