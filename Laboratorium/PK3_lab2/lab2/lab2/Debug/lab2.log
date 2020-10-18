@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\pauli\source\repos\lab2\lab2\main.cpp(35): warning C4715: "operator!=”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\pauli\source\repos\lab2\lab2\main.cpp(42): warning C4715: "operator==”: niewszystkie ścieżki kodu zwracają wartość
+  lab2.vcxproj -> C:\Users\pauli\source\repos\lab2\Debug\lab2.exe
