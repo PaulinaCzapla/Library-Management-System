@@ -1,7 +1,7 @@
 #include "Node.h"
 
 
-template<class T>
+template<typename T>
 Node<T>::Node(T data_) 
 {
 	this->data = data_;
@@ -16,7 +16,6 @@ Node<T>::Node(Node<T>& node_)
 	this->next = node_->next;
 	this->prev = node_->prev;
 }
-
 
 template <typename T>
 Node<T>::Node(T data_, Node<T>* next_, Node<T>* prev_)

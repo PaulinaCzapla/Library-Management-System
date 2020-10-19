@@ -1,8 +1,11 @@
 #pragma once
+#ifndef NODE_H
+#define NODE_H
+#include <iostream>
 #include "Book.h"
-#include "Movie.h"
 #include "CD.h"
-
+#include "Movie.h"
+#include "Resource.h"
 template<typename T>
 class Node 
 {
@@ -26,3 +29,4 @@ public:
 };
 
 
+#endif

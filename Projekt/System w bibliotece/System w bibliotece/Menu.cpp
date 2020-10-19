@@ -1,5 +1,4 @@
 #include "Menu.h"
-#include <iostream>
 
 void Menu::show_main_menu()
 {

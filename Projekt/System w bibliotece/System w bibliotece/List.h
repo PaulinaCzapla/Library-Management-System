@@ -1,6 +1,7 @@
 #pragma once
+#ifndef LIST_H
+#define LIST_H
 #include "Node.h"
-
 
 template<typename T>
 class List
@@ -17,6 +18,6 @@ public:
 	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
 
 	~List();
-
 };
 
+#endif
