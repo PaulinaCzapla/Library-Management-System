@@ -1,6 +1,9 @@
 #pragma once
 #include "List.h"
 #include "Node.h"
+
+#define LIBRARIES_NUM 3
+
 class Library
 {
 public:
