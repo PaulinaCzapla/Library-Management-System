@@ -15,11 +15,11 @@ void FileLibrary<T>::read(Library& library)// ID imie nazwisko tytul data dostep
 		std::string ID, name, surname, date, title;
 		bool is_available;
 
-		while (!plik.eof())
+		while (!file.eof())
 		{
-			if ((plik >> ID >> name >> surname >> date >> is_available)) //sprawdzenie, czy dane siê prawid³owo wczytuj¹
+			if ((file >> ID >> name >> surname >> date >> is_available)) //sprawdzenie, czy dane siê prawid³owo wczytuj¹
 			{
-				getline(plik, title);
+				getline(file, title);
 				Date date_cl(date);
 				switch (ID[0])
 				{
@@ -47,6 +47,7 @@ void FileLibrary<T>::read(Library& library)// ID imie nazwisko tytul data dostep
 			{
 				text.display_red(" Blad. Nieprawidlowy format pliku ");
 				std::cout << this->filename << std::endl;
+				break;
 			}
 		}
 	}
@@ -55,6 +56,8 @@ void FileLibrary<T>::read(Library& library)// ID imie nazwisko tytul data dostep
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
+
+	file.close();
 }
 
 template<typename T>
@@ -65,49 +68,44 @@ void FileLibrary<T>::write(Library& library)
 	std::fstream file;
 	file.open(this->filename, std::ios::out);
 
-	Node<Book>* bookHead = library.books.get_head();
-	Node<CD>* cdHead = library.cds.get_head();
-	Node<Movie>* movieHead = library.movies.get_head();
-
-
 	if (this->check(file))
 	{
-		Node<Book>* tmpB(bookHead);
-		Node<CD>* tmpC(cdHead);
-		Node<Movie>* tmpM(movieHead);
+		Node<Book>* tmpB= library.books.get_head();
+		Node<CD>* tmpC = library.cds.get_head();
+		Node<Movie>* tmpM = library.movies.get_head();
 
 		while (tmpB)
 		{
-			plik << tmpB->get_current().get_ID();
-			plik << tmpB->get_current().get_authors_name();
-			plik << tmpB->get_current().get_date();
-			plik << tmpB->get_current().get_availability();
-			plik << tmpB->get_current().get_title();
-			plik << std::endl;
+			file << tmpB->get_current_data().get_ID();
+			file << tmpB->get_current_data().get_authors_name();
+			file << tmpB->get_current_data().get_date_string();
+			file << tmpB->get_current_data().get_availability();
+			file << tmpB->get_current_data().get_title();
+			file << std::endl;
 
 			tmpB = tmpB->get_next();
 		}
 
 		while (tmpC)
 		{
-			plik << tmpC->get_current().get_ID();
-			plik << tmpC->get_current().get_authors_name();
-			plik << tmpC->get_current().get_date();
-			plik << tmpC->get_current().get_availability();
-			plik << tmpC->get_current().get_title();
-			plik << std::endl;
+			file << tmpC->get_current_data().get_ID();
+			file << tmpC->get_current_data().get_authors_name();
+			file << tmpC->get_current_data().get_date_string();
+			file << tmpC->get_current_data().get_availability();
+			file << tmpC->get_current_data().get_title();
+			file << std::endl;
 
 			tmpC = tmpC->get_next();
 		}
 
 		while (tmpM)
 		{
-			plik << tmpM->get_current().get_ID();
-			plik << tmpM->get_current().get_authors_name();
-			plik << tmpM->get_current().get_date();
-			plik << tmpM->get_current().get_availability();
-			plik << tmpM->get_current().get_title();
-			plik << std::endl;
+			file << tmpM->get_current_data().get_ID();
+			file << tmpM->get_current_data().get_authors_name();
+			file << tmpM->get_current_data().get_date_string();
+			file << tmpM->get_current_data().get_availability();
+			file << tmpM->get_current_data().get_title();
+			file << std::endl;
 
 			tmpM = tmpM->get_next();
 		}
@@ -121,4 +119,6 @@ void FileLibrary<T>::write(Library& library)
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
+
+	file.close();
 }
