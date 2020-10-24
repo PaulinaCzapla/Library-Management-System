@@ -29,7 +29,7 @@ std::string ID;
 	std::string get_string_date();
 	std::string get_address();
 	std::string get_phone_number();
-	//bool operator==(const std::string&);
+	bool operator==(const std::string&);
 
 //operator =
 };

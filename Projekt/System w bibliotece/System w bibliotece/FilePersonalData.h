@@ -2,7 +2,7 @@
 #ifndef FILEPERSONALDATA_H
 #define FILEPERSONALDATA_H
 #include "File.h"
-#include "File.cpp"
+
 
 
 class FilePersonalData :

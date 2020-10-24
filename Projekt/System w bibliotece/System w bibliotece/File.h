@@ -5,8 +5,7 @@
 #include <string>
 #include "Text.h"
 #include "Person.h"//date library list node borrowed
-#include "Node.cpp"
-#include "List.cpp"
+
 
 
 #define FILENAME_PERSONAL_DATA "personal_data.txt"
@@ -29,5 +28,18 @@ public:
 	virtual void read(T&) =0;
 	bool check(std::fstream&);
 };
+
+template<typename T>
+File<T>::File<T>(std::string filename_) : filename(filename_) {}
+
+template<typename T>
+bool File<T>::check(std::fstream& file)
+{
+	if (file.is_open() && file.good())
+		return true;
+	else
+		return false;
+}
+
 
 #endif

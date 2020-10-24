@@ -54,11 +54,11 @@ std::string Person::get_phone_number()
 	return this->phone_number;
 }
 
-//bool Person::operator==(const std::string& id)
-//{
-//	if (id.compare(this->ID) == 0)
-//		return true;
-//	else
-//		return false;
-//}
+bool Person::operator==(const std::string& id)
+{
+	if (id.compare(this->ID) == 0)
+		return true;
+	else
+		return false;
+}
 

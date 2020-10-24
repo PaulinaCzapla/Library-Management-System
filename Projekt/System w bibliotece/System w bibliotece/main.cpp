@@ -82,13 +82,13 @@ bool operator==(T& o, std::string id)
 {
 	return false;
 }
-bool operator ==(const Person& person, const std::string& id)
-{
-	if (id.compare(person.ID) == 0)
-		return true;
-	else
-		return false;
-}
+//bool operator ==(const Person& person, const std::string& id)
+//{
+//	if (id.compare(person.ID) == 0)
+//		return true;
+//	else
+//		return false;
+//}
 
 //bool operator ==(const Person& person, const Person& person2)
 //{
