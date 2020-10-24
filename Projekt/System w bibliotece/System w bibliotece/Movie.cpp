@@ -13,19 +13,19 @@ Movie::Movie() : Resource(){}
 
 void Movie::create_id(int number)
 {
-	std::string M = "M";
+	std::string F = "F";
 	if (number < 10)
-		this->ID = M + "00000" + std::to_string(number);
+		this->ID = F + "00000" + std::to_string(number);
 	else if (number < 100)
-		this->ID = M + "0000" + std::to_string(number);
+		this->ID = F + "0000" + std::to_string(number);
 	else if (number < 1000)
-		this->ID = M + "000" + std::to_string(number);
+		this->ID = F + "000" + std::to_string(number);
 	else if (number < 10000)
-		this->ID = M + "00" + std::to_string(number);
+		this->ID = F + "00" + std::to_string(number);
 	else if (number < 100000)
-		this->ID = M + "0" + std::to_string(number);
+		this->ID = F + "0" + std::to_string(number);
 	else
-		this->ID = M + std::to_string(number);
+		this->ID = F + std::to_string(number);
 
 	this->ID += "GL1";
 }

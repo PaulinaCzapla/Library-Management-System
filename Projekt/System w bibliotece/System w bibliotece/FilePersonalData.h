@@ -3,11 +3,12 @@
 #include "List.h"
 #include "Person.h"
 
+template<typename T>
 class FilePersonalData :
-	public File
+	public File<T>
 {
 
 public:
-	List <class Person> * read();
+
 };
 

@@ -22,8 +22,13 @@ void Borrowed<T>::display()
 	std::cout << " " << this->data << " wypozyczono: " << this->borrow_date << " termin oddania: " << this->deadline;
 }
 template <typename T>
+
 int Borrowed<T>::count_fine()
 {
 	int diff = this->deadline - this->borrow_date;
-	(diff < 0 ? return diff * price : return 0);
+
+	if (diff < 0)
+		return (diff * PRICE);
+	else
+		return 0;
 }

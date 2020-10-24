@@ -10,6 +10,7 @@
 //#include "CD.h"
 //#include "Book.h"
 #include "Borrowed.h"
+
 class Person
 {
 	friend std::ostream& operator<<(std::ostream& output, Person const& data);

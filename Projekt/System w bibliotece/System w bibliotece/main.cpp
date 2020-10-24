@@ -10,6 +10,7 @@
 #include "Node.cpp"
 #include "List.cpp"
 #include "Person.h"
+#include "Library.h"
 
 std::ostream& operator<< (std::ostream& output, Resource const& data)
 {
@@ -79,7 +80,11 @@ int main()
 	movies.push_front(node);
 	movies.display_list();
 
+	Library biblioteka;
+
+
 	Date dat;
-	
+	List<Book> books;
+	List<CD> cds;
 	std::cout << dat;
 }

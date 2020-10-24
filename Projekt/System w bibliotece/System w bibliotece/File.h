@@ -1,12 +1,18 @@
 #pragma once
 #include <fstream>
+#include "Text.h"
+#include "Node.h"
+
+template<typename T>
 class File
 {
 protected:
-	std::fstream file;
+	std::string filename;
 
 public:
-	virtual void save() =0;
-	virtual void read() =0;
+	File(std::string);
+	virtual void write(T&) =0;
+	virtual void read(T&) =0;
+	bool check(std::fstream&);
 };
 

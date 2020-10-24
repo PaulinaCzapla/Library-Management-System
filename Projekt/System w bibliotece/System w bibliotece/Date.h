@@ -16,6 +16,7 @@ class Date
 
 public:
 	Date(short unsigned int, short unsigned int , short unsigned int );
+	Date(std::string);
 	Date();
 	void set_day(short unsigned int);
 	void set_month(short unsigned int);

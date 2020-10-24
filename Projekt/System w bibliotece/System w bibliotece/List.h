@@ -15,7 +15,9 @@ public:
 	Node<T>* delete_element(Node<T>*); //usuwa wybrany element
 	void display_list(); //wyœwietla ca³¹ listê 
 	int size(); //zwraca iloœæ elementów listy
+	Node<T>* get_head();
 	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
+	T& get_data(Node<T>*);
 
 	~List();
 };

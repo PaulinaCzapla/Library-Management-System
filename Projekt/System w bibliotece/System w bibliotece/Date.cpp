@@ -7,6 +7,13 @@ Date::Date(short unsigned int day_, short unsigned int month_, short unsigned in
 	this->year = year_;
 }
 
+Date::Date(std::string date_)
+{
+		this->day = (date_[0] - '0') * 10 + (date_[1] - '0');
+		this->month = (date_[3] - '0') * 10 + (date_[4] - '0');
+		this->year = (date_[6] - '0') * 1000 + (date_[7] - '0') * 100 + (date_[8] - '0') * 10 + (date_[9] - '0');
+}
+
 Date::Date()
 {
 	SYSTEMTIME time;

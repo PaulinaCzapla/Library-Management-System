@@ -26,6 +26,11 @@ public:
 	void change_availability(bool);
 	virtual void create_id(int)=0;
 	bool operator==(const std::string&);
+	std::string get_ID();
+	std::string get_authors_name();
+	std::string get_title();
+	Date get_date();
+	bool get_availability();
 	virtual ~Resource();
 
 };

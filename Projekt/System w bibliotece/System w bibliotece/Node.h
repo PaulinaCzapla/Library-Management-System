@@ -5,7 +5,8 @@
 #include "Book.h"
 #include "CD.h"
 #include "Movie.h"
-#include "Resource.h"
+
+
 template<typename T>
 class Node 
 {
@@ -21,7 +22,7 @@ public:
 	Node * get_next();
 	void set_prev(Node*);
 	Node* get_prev();
-	T* get_current();
+	T& get_current();
 	Node& operator=(const Node&);
 	bool operator==(const std::string&);
 

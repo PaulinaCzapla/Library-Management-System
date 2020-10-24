@@ -1,7 +1,8 @@
 #pragma once
 #include "Date.h"
 
-int price = 7;
+
+#define PRICE 7
 
 template<typename T>
 class Borrowed

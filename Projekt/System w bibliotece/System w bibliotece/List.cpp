@@ -75,6 +75,18 @@ int List<T>::size()
 }
 
 template<typename T>
+T& List<T>::get_data(Node<T>* node)
+{
+    return node->get_current();
+}
+
+template<typename T>
+Node<T>* List<T>::get_head()
+{
+    return head;
+}
+
+template<typename T>
 List<T>::~List()
 {
     Node <T> * p;

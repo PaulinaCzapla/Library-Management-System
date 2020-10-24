@@ -61,5 +61,26 @@ bool Resource::operator==(const std::string& id)
 //	return output;
 //}
 
+std::string Resource::get_ID()
+{
+	return this->ID;
+}
+std::string Resource::get_authors_name()
+{
+	return this->authors_name;
+}
+std::string Resource::get_title()
+{
+	return this->title;
+}
+Date Resource::get_date()
+{
+	return this->release_date;
+}
+bool Resource::get_availability()
+{
+	return this->is_available;
+}
+
 Resource::~Resource() {}
 
