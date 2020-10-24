@@ -1,7 +1,11 @@
 #pragma once
-#include "Date.h"
-#include "Library.h"
+#ifndef BORROWED_H
+#define BORROWED_H
 
+#include "Date.h"
+#include "Library.h" // list node
+//#include "List.cpp"
+//#include "Node.cpp"
 #define PRICE 7
 
 
@@ -20,4 +24,4 @@ public:
 	Date get_deadline();
 	int count_fine();
 };
-
+#endif

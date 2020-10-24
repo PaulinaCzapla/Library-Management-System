@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-void Menu::show_main_menu()
+void Menu::main_menu()
 {
 	for (;;)
 	{
@@ -59,7 +59,7 @@ void Menu::show_main_menu()
 
 	}
 }
-void Menu::show_resources_menu()
+void Menu::resources_menu()
 {
 	for (;;)
 	{
@@ -110,7 +110,7 @@ void Menu::show_resources_menu()
 
 }
 
-void Menu::show_external_libraries_menu()
+void Menu::external_libraries_menu()
 {
 	for (;;)
 	{
@@ -163,7 +163,7 @@ void Menu::show_external_libraries_menu()
 	
 }
 
-void Menu::show_users_menu()
+void Menu::users_menu()
 {
 	for (;;)
 	{

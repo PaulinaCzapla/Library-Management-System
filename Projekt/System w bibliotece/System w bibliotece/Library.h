@@ -1,12 +1,15 @@
 #pragma once
-#include "List.h"
-#include "Node.h"
+#ifndef LIBRARY_H
+#define LIBRARY_H
+#include "List.h" //node
+
 
 #define LIBRARIES_NUM 3
 
 class Library
 {
 public:
+	Library();
 	List <Book>  books;
 	List <CD> cds;
 	List <Movie> movies;
@@ -26,3 +29,4 @@ public:
 
 };
 
+#endif

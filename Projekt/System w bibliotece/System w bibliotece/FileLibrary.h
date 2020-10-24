@@ -1,10 +1,11 @@
 #pragma once
+#ifndef FILELIBRARY_H
+#define FILELIBRARY_H
 #include "File.h"
-#include "Library.h"
-template<typename T>
+#include "File.cpp"
 
 class FileLibrary :
-    public File<T>
+    public File<Library>
 {
 
 public:
@@ -12,4 +13,4 @@ public:
     void write(Library&);
     void read(Library&);
 };
-
+#endif

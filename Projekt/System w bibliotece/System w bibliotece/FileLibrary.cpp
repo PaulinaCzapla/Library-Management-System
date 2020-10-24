@@ -1,10 +1,10 @@
 #include "FileLibrary.h"
 
-template<typename T>
-FileLibrary<T>::FileLibrary<T>(std::string filename_) : File<T>(filename_) {}
 
-template<typename T>
-void FileLibrary<T>::read(Library& library)// ID imie nazwisko tytul data dostep
+FileLibrary::FileLibrary(std::string filename_) : File(filename_) {}
+
+
+void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 {
 	Text text;
 	std::fstream file;
@@ -21,28 +21,30 @@ void FileLibrary<T>::read(Library& library)// ID imie nazwisko tytul data dostep
 			{
 				getline(file, title);
 				Date date_cl(date);
-				switch (ID[0])
-				{
-				case 'K':
-					Book book(ID, name + " " + surname, date_cl, title, is_available);
-					Node<Book>* node = new Node<Book>(book);
-					library.books.push_front(node);
-					break;
-				case 'C':
-					CD cd(ID, name + " " + surname, date_cl, title, is_available);
-					Node<CD>* node = new Node<CD>(cd);
-					library.cds.push_front(node);
 
-					break;
-				case 'F':
-					Movie movie(ID, name + " " + surname, date_cl, title, is_available);
-					Node<Movie>* node = new Node<Movie>(movie);
-					library.movies.push_front(node);
-					break;
-				default:
-					continue;
+				if (ID[0] == 'K')
+				{
+					Book book(ID, name + " " + surname, date_cl, title, is_available);
+					Node<Book>* nodeb = new Node<Book>(book);
+					library.books.push_front(nodeb);
 				}
+				else if (ID[0] == 'C')
+				{
+					CD cd(ID, name + " " + surname, date_cl, title, is_available);
+					Node<CD>* nodec = new Node<CD>(cd);
+					library.cds.push_front(nodec);
+				}
+				else if (ID[0] == 'F')
+				{
+					Movie movie(ID, name + " " + surname, date_cl, title, is_available);
+					Node<Movie>* nodem = new Node<Movie>(movie);
+					library.movies.push_front(nodem);
+				}
+				else
+					continue;
+
 			}
+
 			else
 			{
 				text.display_red(" Blad. Nieprawidlowy format pliku ");
@@ -60,8 +62,8 @@ void FileLibrary<T>::read(Library& library)// ID imie nazwisko tytul data dostep
 	file.close();
 }
 
-template<typename T>
-void FileLibrary<T>::write(Library& library) 
+
+void FileLibrary::write(Library& library)
 {
 
 	Text text;
@@ -70,17 +72,17 @@ void FileLibrary<T>::write(Library& library)
 
 	if (this->check(file))
 	{
-		Node<Book>* tmpB= library.books.get_head();
+		Node<Book>* tmpB = library.books.get_head();
 		Node<CD>* tmpC = library.cds.get_head();
 		Node<Movie>* tmpM = library.movies.get_head();
 
 		while (tmpB)
 		{
-			file << tmpB->get_current_data().get_ID();
-			file << tmpB->get_current_data().get_authors_name();
-			file << tmpB->get_current_data().get_date_string();
-			file << tmpB->get_current_data().get_availability();
-			file << tmpB->get_current_data().get_title();
+			file << tmpB->get_current_data().get_ID() << " ";
+			file << tmpB->get_current_data().get_authors_name() << " ";
+			file << tmpB->get_current_data().get_date_string() << " ";
+			file << tmpB->get_current_data().get_availability() << " ";
+			file << tmpB->get_current_data().get_title() << " ";
 			file << std::endl;
 
 			tmpB = tmpB->get_next();

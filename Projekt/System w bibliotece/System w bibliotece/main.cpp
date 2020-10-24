@@ -1,17 +1,23 @@
 ﻿
 #include <iostream>
-#include "List.h"
-#include "Book.h"
-#include "CD.h"
 #include "Menu.h"
-#include "Movie.h"
+//#include "List.h"
+//
+//#include "Book.h"
+//#include "CD.h"
+//
+//#include "Movie.h"
 #include "Resource.h"
 #include "Node.h"
-#include "Node.cpp"
-#include "List.cpp"
-#include "Person.h"
-#include "Library.h"
-
+//#include "Node.cpp"
+//#include "List.cpp"
+//
+//#include "File.h"
+//#include "Library.h"
+//#include "FileBorrowed.h"
+//#include "FileLibrary.h"
+//#include "FilePersonalData.h"
+#include"Person.h"
 std::ostream& operator<< (std::ostream& output, Resource const& data)
 {
 	Text text;
@@ -71,20 +77,50 @@ std::ostream& operator<< (std::ostream& output, Person const& data)
 	return output;
 }
 
+template <typename T>
+bool operator==(T& o, std::string id)
+{
+	return false;
+}
+bool operator ==(const Person& person, const std::string& id)
+{
+	if (id.compare(person.ID) == 0)
+		return true;
+	else
+		return false;
+}
+
+//bool operator ==(const Person& person, const Person& person2)
+//{
+//	if (person.ID == person.ID)
+//		return true;
+//	else
+//		return false;
+//}
+
 int main()
 {
-	List<Movie> movies; //Book(std::string, std::string, Date*,std::string = "brak", bool = true);
-	Date date(10, 10, 2000);
-	Movie movie(movies.size(), " ktos df ", date, " cos tam", false);
-	Node<Movie>* node = new Node<Movie>(movie);
-	movies.push_front(node);
-	movies.display_list();
-
-	Library biblioteka;
-
-
-	Date dat;
-	List<Book> books;
-	List<CD> cds;
-	std::cout << dat;
+//	FileLibrary file_library1(FILENAME_MAIN_LIBRARY);
+//
+//	Menu menu;
+//
+//
+//
+//
+//
+//
+//	List<Movie> movies; //Book(std::string, std::string, Date*,std::string = "brak", bool = true);
+//	Date date(10, 10, 2000);
+//	Movie movie(movies.size(), " ktos df ", date, " cos tam", false);
+//	Node<Movie>* node = new Node<Movie>(movie);
+//	movies.push_front(node);
+//	movies.display_list();
+//
+//	Library biblioteka;
+//
+//
+//	Date dat;
+//	List<Book> books;
+//	List<CD> cds;
+//	std::cout << dat;
 }

@@ -48,13 +48,28 @@ Node<T>* List<T>::get_element( std::string id)
 
     while (tmp)
     {
-        if (tmp == id)
+        if (tmp->get_current_data() == id)
             return tmp;         
         else
             tmp = tmp->get_next();
     }
     return nullptr;
 }
+
+//template<typename T>
+//Node<T>* List<T>::get_element(T id)
+//{
+//    Node<T>* tmp = this->head;
+//
+//    while (tmp)
+//    {
+//        if (tmp->get_current_data() == id)
+//            return tmp;
+//        else
+//            tmp = tmp->get_next();
+//    }
+//    return nullptr;
+//}
 
 template<typename T>
 void List<T>::display_list()

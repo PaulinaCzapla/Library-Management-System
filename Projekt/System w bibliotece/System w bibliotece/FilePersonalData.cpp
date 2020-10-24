@@ -2,11 +2,11 @@
 
 
 
-template<typename T>
-FilePersonalData<T>::FilePersonalData<T>(std::string filename_) : File<T>(filename_) {}
 
-template<typename T>
-void FilePersonalData<T>::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 1955-08-29 414508198 Chorzow, Kujawska 5
+FilePersonalData::FilePersonalData(std::string filename_) : File<List<Person>>(filename_) {}
+
+
+void FilePersonalData::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 1955-08-29 414508198 Chorzow, Kujawska 5
 {
 	Text text;
 	std::fstream file;
@@ -44,8 +44,7 @@ void FilePersonalData<T>::read(List<Person>& users)// 55082998585 Anastazja Wlod
 	file.close();	
 }
 
-template<typename T>
-void FilePersonalData<T>::write(List<Person>& users)
+void FilePersonalData::write(List<Person>& users)
 {
 	Text text;
 	std::fstream file;
@@ -58,10 +57,10 @@ void FilePersonalData<T>::write(List<Person>& users)
 	{
 		while (personHead)
 		{
-			file << personHead->get_current_data().get_ID();
-			file << personHead->get_current_data().get_name();
-			file << personHead->get_current_data().get_string_date();
-			file << personHead->get_current_data().get_phone_number();
+			file << personHead->get_current_data().get_ID() << " ";
+			file << personHead->get_current_data().get_name() << " ";
+			file << personHead->get_current_data().get_string_date() << " ";
+			file << personHead->get_current_data().get_phone_number() << " ";
 			file << personHead->get_current_data().get_address();
 			file << std::endl;
 

@@ -17,6 +17,7 @@ public:
 	int size(); //zwraca iloœæ elementów listy
 	Node<T>* get_head();
 	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
+	//Node <T>* get_element(T);
 	T& get_data(Node<T>*);
 
 	~List();
