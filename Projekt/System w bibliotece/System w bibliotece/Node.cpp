@@ -59,9 +59,15 @@ Node<T>* Node<T>::get_prev()
 
 
 template <typename T>
-T& Node<T>::get_current()
+T& Node<T>::get_current_data()
 {
 	return this->data;
+}
+
+template <typename T>
+Node<T>* Node<T>::get_current()
+{
+	return this;
 }
 
 template <typename T>

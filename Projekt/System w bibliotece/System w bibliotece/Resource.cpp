@@ -73,6 +73,11 @@ std::string Resource::get_title()
 {
 	return this->title;
 }
+
+std::string Resource::get_date_string()
+{
+	return this->release_date.date_to_string();
+}
 Date Resource::get_date()
 {
 	return this->release_date;

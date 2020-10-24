@@ -45,6 +45,23 @@ void Date::set_year(short unsigned int year_)
 //
 //}
 
+std::string Date::date_to_string()
+{
+	std::string tmp;
+	if (this->day < 10)
+		tmp = '0' + std::to_string(this->day);
+	else
+		tmp =std::to_string(this->day);
+
+	if (this->month < 10)
+		tmp = tmp + "-0" + std::to_string(this->month);
+	else
+		tmp =tmp +'-' + std::to_string(this->month);
+
+	return tmp + '-' + std::to_string(this->year);
+
+}
+
 std::ostream& Date::operator<< (std::ostream& output)
 {
 	std::cout << this->day << "." << this->month << "." << this->year;

@@ -20,12 +20,19 @@ class Person
 	std::string address;
 	std::string phone_number;
 
-	List <Borrowed<Book>*>* books;
-	List <Borrowed<CD>*>* cds;
-	List <Borrowed<Movie>*>* movies;
-
 public:
-	Person(std::string, std::string, Date, std::string = "brak", std::string = "brak", List <Borrowed<Book>*>* = nullptr, List <Borrowed<CD>*>* = nullptr, List <Borrowed<Movie>*>* = nullptr);
+	List <Borrowed> borrowed_resources;
+
+	Person(std::string, std::string, Date, std::string, std::string , List <Borrowed>);
+	Person(std::string, std::string, Date, std::string, std::string);
+	std::string get_ID();
+	std::string get_name();
+	Date get_birth_date();
+	std::string get_string_date();
+	std::string get_address();
+	std::string get_phone_number();
+	bool operator==(const std::string&);
+
 //operator =
 };
 

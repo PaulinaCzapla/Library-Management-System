@@ -44,7 +44,7 @@ Node<T>* List<T>::delete_element(Node<T>* node_)
 template<typename T>
 Node<T>* List<T>::get_element( std::string id)
 {
-    Node<T>* tmp(this->head);
+    Node<T>* tmp = this->head;
 
     while (tmp)
     {
@@ -59,7 +59,7 @@ Node<T>* List<T>::get_element( std::string id)
 template<typename T>
 void List<T>::display_list()
 {
-    Node<T>* tmp(this->head);
+    Node<T>* tmp = this->head;
 
     while (tmp)
     {
@@ -77,7 +77,7 @@ int List<T>::size()
 template<typename T>
 T& List<T>::get_data(Node<T>* node)
 {
-    return node->get_current();
+    return node->get_current_data();
 }
 
 template<typename T>

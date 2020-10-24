@@ -21,6 +21,7 @@ public:
 	void set_day(short unsigned int);
 	void set_month(short unsigned int);
 	void set_year(short unsigned int);
+	std::string date_to_string();
 	//bool is_late(Date);
 	std::ostream& operator<< (std::ostream&);
 	int operator- (const Date&) const;

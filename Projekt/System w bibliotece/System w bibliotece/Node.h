@@ -22,7 +22,8 @@ public:
 	Node * get_next();
 	void set_prev(Node*);
 	Node* get_prev();
-	T& get_current();
+	T& get_current_data();
+	Node* get_current();
 	Node& operator=(const Node&);
 	bool operator==(const std::string&);
 
