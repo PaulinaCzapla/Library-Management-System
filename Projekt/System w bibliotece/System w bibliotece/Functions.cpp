@@ -101,7 +101,6 @@ void Functions::borrow(Library* libraries, List<Person>& users)
 
 }
 
-
 void Functions::make_a_return(Library* libraries, List<Person>& users)
 {
 	system("cls");
@@ -374,4 +373,131 @@ void Functions::delete_user(List<Person>& users)
 	}
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 		_getch();
+}
+
+void Functions::add_new_book(Library& library)
+{
+	std::string name, date, title;
+	Text text;
+
+	std::cout << "\n Podaj imie i nazwisko autora: \n";
+	std::cout << " >  ";
+	std::cin >> name;
+
+	std::cout << "\n Podaj tytul ksiazki: \n";
+	std::cout << " >  ";
+	std::cin >> title;
+
+	std::cout << "\n Podaj rok wydania: \n";
+
+	for (;;)
+	{
+		std::cout << " >  ";
+		std::cin >> date;
+
+		if (date.length() == 4)
+			break;
+		else
+		{
+			text.display_red(" Bledny rok. ");
+			std::cout << std::endl;
+		}
+	}
+	date = "01.01." + date;
+	Date date_cl(date);
+
+		Book book( library.books.size(),name, date_cl, title, true);
+		Node<Book>* nodeb = new Node<Book>(book);
+		library.books.push_front(nodeb);
+
+		text.display_green(" Ksiazka zostala dodana. ");
+		std::cout << std::endl;
+		std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+		_getch();
+}
+
+
+void Functions::add_new_cd(Library& library)
+{
+
+	std::string name, date, title;
+	Text text;
+
+	std::cout << "\n Podaj imie i nazwisko tworcy/nazwe zespolu: \n";
+	std::cout << " >  ";
+	std::cin >> name;
+
+	std::cout << "\n Podaj tytul plyty: \n";
+	std::cout << " >  ";
+	std::cin >> title;
+
+	std::cout << "\n Podaj rok wydania: \n";
+
+	for (;;)
+	{
+		std::cout << " >  ";
+		std::cin >> date;
+
+		if (date.length() == 4)
+			break;
+		else
+		{
+			text.display_red(" Bledny rok. ");
+			std::cout << std::endl;
+		}
+	}
+	date = "01.01." + date;
+	Date date_cl(date);
+
+	CD cd(library.cds.size(), name, date_cl, title, true);
+	Node<CD>* nodecd = new Node<CD>(cd);
+	library.cds.push_front(nodecd);
+
+	text.display_green(" Plyta zostala dodana. ");
+	std::cout << std::endl;
+	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+	_getch();
+
+}
+
+void Functions::add_new_movie(Library& library)
+{
+	std::string name, date, title;
+	Text text;
+
+	std::cout << "\n Podaj imie i nazwisko rezysera: \n";
+	std::cout << " >  ";
+	std::cin >> name;
+
+	std::cout << "\n Podaj tytul filmu: \n";
+	std::cout << " >  ";
+	std::cin >> title;
+
+	std::cout << "\n Podaj rok wydania: \n";
+
+	for (;;)
+	{
+		std::cout << " >  ";
+		std::cin >> date;
+
+		if (date.length() == 4)
+			break;
+		else
+		{
+			text.display_red(" Bledny rok. ");
+			std::cout << std::endl;
+		}
+	}
+	date = "01.01." + date;
+	Date date_cl(date);
+
+	Movie movie(library.movies.size(), name, date_cl, title, true);
+	Node<Movie>* nodem = new Node<Movie>(movie);
+	library.movies.push_front(nodem);
+
+	text.display_green(" Ksiazka zostala dodana. ");
+	std::cout << std::endl;
+	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+	_getch();
+
 }
