@@ -113,6 +113,46 @@ int Date::operator- (const Date& other) const //zwraca ró¿nicê w dniach
 	}
 }
 
+Date Date::operator+ (const int& other) const
+{
+	int daysInMonth[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+
+	int tmp, diff= 0, months=0, year = this->year;
+	tmp = this->day + other;
+
+	Date date;
+
+	if (tmp > daysInMonth[this->month])
+	{
+		for (int i = this->month; ; i++)
+		{
+			if (this->month + i > 12)
+			{
+				i = 0;
+				year++;
+				months = 0;
+			}
+			tmp -= daysInMonth[i];
+			months++;
+
+			if (daysInMonth[i] >= tmp)
+			{
+				date.set_day(tmp);
+				date.set_month(months);
+				date.set_year(year);
+				break;
+			}
+		}	
+	}
+	else
+	{
+		date.set_day(tmp);
+		date.set_month(this->month);
+		date.set_year(this->year);
+	}
+return date;
+}
+
 Date& Date::operator=(const Date& other)
 {
 	this->day = other.day;

@@ -25,6 +25,7 @@ public:
 	//bool is_late(Date);
 	std::ostream& operator<< (std::ostream&);
 	int operator- (const Date&) const;
+	Date operator+ (const int&) const;
 	Date& operator=(const Date&);
 	//~Date();
 };
