@@ -29,7 +29,7 @@ public:
 	std::string get_ID();
 	std::string get_authors_name();
 	std::string get_title();
-	std::string get_date_string();
+	std::string get_year_string();
 	Date get_date();
 	bool get_availability();
 	virtual ~Resource();

@@ -74,9 +74,9 @@ std::string Resource::get_title()
 	return this->title;
 }
 
-std::string Resource::get_date_string()
+std::string Resource::get_year_string()
 {
-	return this->release_date.date_to_string();
+	return this->release_date.year_to_string();
 }
 Date Resource::get_date()
 {

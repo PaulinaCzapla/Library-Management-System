@@ -12,32 +12,55 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 
 	if (this->check(file))
 	{
-		std::string ID, name, surname, date, title;
-		bool is_available;
+		std::string ID, name, surname, date, title, tmp;
+		bool is_available, digit;
 		int i = 0;
 		while (!file.eof())
 		{
-			if ((file >> ID >> name >> surname >> date >> is_available)) //sprawdzenie, czy dane siê prawid³owo wczytuj¹
+			if (file >> ID >> name) 
 			{
+
+				digit = false;
+				tmp = name;
+				for (int j = 0; ; j++)
+				{
+					file >> tmp;
+					for (char ch : tmp)
+						if (isdigit(ch))
+						{
+							digit = true;
+							date = tmp;
+							break;
+						}
+
+					if (digit)
+						break;
+
+					name = name + " " + tmp;
+				}
+
+				file >> is_available;
+
 				i++;
 				getline(file, title);
+				date = "01.01." + date;
 				Date date_cl(date);
 
 				if (ID[0] == 'K')
 				{
-					Book book(ID, name + " " + surname, date_cl, title, is_available);
+					Book book(ID, name, date_cl, title, is_available);
 					Node<Book>* nodeb = new Node<Book>(book);
 					library.books.push_front(nodeb);
 				}
 				else if (ID[0] == 'C')
 				{
-					CD cd(ID, name + " " + surname, date_cl, title, is_available);
+					CD cd(ID, name, date_cl, title, is_available);
 					Node<CD>* nodec = new Node<CD>(cd);
 					library.cds.push_front(nodec);
 				}
 				else if (ID[0] == 'F')
 				{
-					Movie movie(ID, name + " " + surname, date_cl, title, is_available);
+					Movie movie(ID, name, date_cl, title, is_available);
 					Node<Movie>* nodem = new Node<Movie>(movie);
 					library.movies.push_front(nodem);
 				}
@@ -81,7 +104,7 @@ void FileLibrary::write(Library& library)
 		{
 			file << tmpB->get_current_data().get_ID() << " ";
 			file << tmpB->get_current_data().get_authors_name() << " ";
-			file << tmpB->get_current_data().get_date_string() << " ";
+			file << tmpB->get_current_data().get_year_string() << " ";
 			file << tmpB->get_current_data().get_availability() << " ";
 			file << tmpB->get_current_data().get_title() << " ";
 			file << std::endl;
@@ -93,7 +116,7 @@ void FileLibrary::write(Library& library)
 		{
 			file << tmpC->get_current_data().get_ID();
 			file << tmpC->get_current_data().get_authors_name();
-			file << tmpC->get_current_data().get_date_string();
+			file << tmpC->get_current_data().get_year_string();
 			file << tmpC->get_current_data().get_availability();
 			file << tmpC->get_current_data().get_title();
 			file << std::endl;
@@ -105,7 +128,7 @@ void FileLibrary::write(Library& library)
 		{
 			file << tmpM->get_current_data().get_ID();
 			file << tmpM->get_current_data().get_authors_name();
-			file << tmpM->get_current_data().get_date_string();
+			file << tmpM->get_current_data().get_year_string();
 			file << tmpM->get_current_data().get_availability();
 			file << tmpM->get_current_data().get_title();
 			file << std::endl;
