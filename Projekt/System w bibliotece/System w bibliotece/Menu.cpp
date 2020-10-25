@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-void Menu::main_menu()
+void Menu::main_menu(Library* libraries, List<Person>& users)
 {
 	for (;;)
 	{
@@ -9,7 +9,7 @@ void Menu::main_menu()
 		printf("\n                                           System biblioteczny\n\n");
 		printf("                                            [1] Wypozycz \n");
 		printf("                                            [2] Dodaj zwrot \n");
-		printf("                                            [3] Baza u¿ytkownikow \n");
+		printf("                                            [3] Baza uzytkownikow \n");
 		printf("                                            [4] Zasoby biblioteki \n");
 		printf("                                            [5] Zasoby bibiotek zewnetrznych\n");
 		printf("                                            [6] Zapisz zmiany \n");
@@ -17,27 +17,29 @@ void Menu::main_menu()
 		printf("\n");
 
 		char ch, tmp;
+		Functions function;
 
 		for(;;)
 		{
-			printf(" >  ");
-			scanf_s("%c", &ch, 1);
-
-			while ((tmp = getchar()) != '\n');
+			std::cout<<" >  ";
+			std::cin >> ch;
 
 			if (ch == '0')
+			{
 				break;
+			}
+				
 
 			switch (ch)
 			{
 			case '1':
-				
+				function.borrow(libraries, users);
 				break;
 			case '2':
-				
+				function.make_a_return(libraries, users);
 				break;
 			case '3':
-				
+				this->users_menu(users);
 				break;
 			case '4':
 	
@@ -75,8 +77,8 @@ void Menu::resources_menu()
 
 		for (;;)
 		{
-			printf(" >  ");
-			scanf_s("%c", &ch, 1);
+			std::cout << " >  ";
+			std::cin >> ch;
 
 			while ((tmp = getchar()) != '\n');
 
@@ -128,8 +130,8 @@ void Menu::external_libraries_menu()
 
 		for (;;)
 		{
-			printf(" >  ");
-			scanf_s("%c", &ch, 1);
+			std::cout << " >  ";
+			std::cin >> ch;
 
 			while ((tmp = getchar()) != '\n');
 
@@ -163,7 +165,7 @@ void Menu::external_libraries_menu()
 	
 }
 
-void Menu::users_menu()
+void Menu::users_menu(List<Person>& users)
 {
 	for (;;)
 	{
@@ -178,11 +180,11 @@ void Menu::users_menu()
 		printf("\n");
 
 		char ch, tmp;
-
+		Functions functions;
 		for (;;)
 		{
-			printf(" >  ");
-			scanf_s("%c", &ch, 1);
+			std::cout << " >  ";
+			std::cin >> ch;
 
 			while ((tmp = getchar()) != '\n');
 
@@ -192,19 +194,24 @@ void Menu::users_menu()
 			switch (ch)
 			{
 			case '1':
-
+				users.display_list();
+				std::cout << std::endl;
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
 				break;
 			case '2':
-
+				functions.find_user_byID(users);
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
 				break;
 			case '3':
-
-
+				functions.add_new_user(users);
 				break;
 				
 			case '4':
-
-
+				functions.delete_user(users);
 				break;
 
 			default:

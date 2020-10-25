@@ -7,10 +7,10 @@
 class Menu
 {
 public:
-	void main_menu();
+	void main_menu(Library*, List<Person>&);
 	void resources_menu();
 	void external_libraries_menu();
-	void users_menu();
+	void users_menu(List<Person>& );
 };
 
 #endif
