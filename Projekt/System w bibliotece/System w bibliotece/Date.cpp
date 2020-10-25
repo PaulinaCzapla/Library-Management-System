@@ -40,10 +40,12 @@ void Date::set_year(short unsigned int year_)
 	this->year = year_;
 }
 
-//bool Date::is_late(Date deadline)
-//{
-//
-//}
+void Date::set_date_from_string(std::string date_)
+{
+	this->day = (date_[0] - '0') * 10 + (date_[1] - '0');
+	this->month = (date_[3] - '0') * 10 + (date_[4] - '0');
+	this->year = (date_[6] - '0') * 1000 + (date_[7] - '0') * 100 + (date_[8] - '0') * 10 + (date_[9] - '0');
+}
 
 std::string Date::date_to_string()
 {
@@ -62,11 +64,28 @@ std::string Date::date_to_string()
 
 }
 
-std::ostream& Date::operator<< (std::ostream& output)
+bool Date::check()
 {
-	std::cout << this->day << "." << this->month << "." << this->year;
-	return output;
+	int daysInMonth[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+	if (this->day <= daysInMonth[this->month] && 0 < this->month <= 12)
+		return true;
+	else
+		return false;
 }
+
+bool Date::check_string(std::string date)
+{
+	if (date.length() == 10)
+		if (date[2] == '.' || date[2] == '-' && date[5] == '.' || date[5] == '-')
+			if (isdigit(date[0]) && isdigit(date[1]) && isdigit(date[3]) && isdigit(date[4]) && isdigit(date[6]) && isdigit(date[7]) && isdigit(date[8]) && isdigit(date[9]))
+				return true;
+	return false;
+}
+//std::ostream& Date::operator<< (std::ostream& output)
+//{
+//	std::cout << this->day << "-" << this->month << "-" << this->year;
+//	return output;
+//}
 
 int Date::operator- (const Date& other) const //zwraca ró¿nicê w dniach
 {

@@ -5,6 +5,7 @@
 #include <string>
 #include <windows.h>
 #include <winbase.h>
+#include <locale>
 
 class Date
 {
@@ -21,9 +22,11 @@ public:
 	void set_day(short unsigned int);
 	void set_month(short unsigned int);
 	void set_year(short unsigned int);
+	void set_date_from_string(std::string);
 	std::string date_to_string();
-	//bool is_late(Date);
-	std::ostream& operator<< (std::ostream&);
+	bool check();
+	bool check_string(std::string);
+	//std::ostream& operator<< (std::ostream&);
 	int operator- (const Date&) const;
 	Date operator+ (const int&) const;
 	Date& operator=(const Date&);
