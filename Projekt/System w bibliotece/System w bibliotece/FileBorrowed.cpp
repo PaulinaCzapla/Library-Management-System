@@ -11,6 +11,7 @@ void FileBorrowed::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 
 	Text text;
 	std::fstream file;
 	file.open(this->filename, std::ios::in);
+	int i = 0;
 
 	if (this->check(file))
 	{
@@ -20,7 +21,7 @@ void FileBorrowed::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 
 		{
 			if (file >> personID >> resourceID >> borrow_date >> deadline)
 			{
-
+				i++;
 				Date date_cl(borrow_date);
 				Date deadline_cl(deadline);
 
@@ -35,6 +36,8 @@ void FileBorrowed::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 
 			}
 			else
 			{
+				if (i == 0)
+					break;
 				text.display_red(" Blad. Nieprawidlowy format pliku ");
 				std::cout << this->filename << std::endl;
 				break;

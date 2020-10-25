@@ -15,11 +15,12 @@ void FilePersonalData::read(List<Person>& users)// 55082998585 Anastazja Wlodarc
 	if (this->check(file))
 	{
 		std::string ID, name, surname, date, phone, address;
-
+		int i = 0;
 		while (!file.eof())
 		{
 			if (file >> ID >> name >> surname >> date >> phone)
 			{
+				i++;
 				getline(file, address);
 				Date date_cl(date);
 
@@ -29,6 +30,8 @@ void FilePersonalData::read(List<Person>& users)// 55082998585 Anastazja Wlodarc
 			}
 			else
 			{
+				if (i == 0)
+					break;
 				text.display_red(" Blad. Nieprawidlowy format pliku ");
 				std::cout << this->filename << std::endl;
 				break;

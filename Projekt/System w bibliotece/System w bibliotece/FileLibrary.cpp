@@ -14,11 +14,12 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 	{
 		std::string ID, name, surname, date, title;
 		bool is_available;
-
+		int i = 0;
 		while (!file.eof())
 		{
 			if ((file >> ID >> name >> surname >> date >> is_available)) //sprawdzenie, czy dane siê prawid³owo wczytuj¹
 			{
+				i++;
 				getline(file, title);
 				Date date_cl(date);
 
@@ -42,11 +43,11 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 				}
 				else
 					continue;
-
 			}
-
 			else
 			{
+				if (i == 0)
+					break;
 				text.display_red(" Blad. Nieprawidlowy format pliku ");
 				std::cout << this->filename << std::endl;
 				break;
