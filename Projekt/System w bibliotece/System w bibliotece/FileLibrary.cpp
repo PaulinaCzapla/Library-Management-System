@@ -123,7 +123,7 @@ void FileLibrary::write(Library& library)
 			file << tmpB->get_current_data().get_title();
 
 			tmpB = tmpB->get_next();
-			if (tmpB)
+			if (tmpB || tmpC)
 				file << std::endl;
 		}
 
@@ -136,7 +136,7 @@ void FileLibrary::write(Library& library)
 			file << tmpC->get_current_data().get_title();
 
 			tmpC = tmpC->get_next();
-			if (tmpC)
+			if (tmpC || tmpM)
 				file << std::endl;
 		}
 

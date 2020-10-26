@@ -72,7 +72,7 @@ std::ostream& operator<< (std::ostream& output, Person& data)
 std::ostream& operator<< (std::ostream& output, Borrowed & data)
 {
 	//std::cout << "                " << data.resource_ID << " wypozyczono: " << data.borrow_date << "   termin zwrotu: " << data.deadline << std::endl;
-	printf("\n                 |   ID %-19s  |  wypozyczono: %-16s  |  termin zwrotu: %-10s  \n", data.resource_ID.c_str(), data.borrow_date.date_to_string().c_str(), data.deadline.date_to_string().c_str());
+	printf("\n                 |  ID %-19s   |  wypozyczono: %-16s  |  termin zwrotu: %-10s  \n", data.resource_ID.c_str(), data.borrow_date.date_to_string().c_str(), data.deadline.date_to_string().c_str());
 	return output;
 }
 

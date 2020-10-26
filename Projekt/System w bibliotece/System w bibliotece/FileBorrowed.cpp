@@ -71,14 +71,14 @@ void FileBorrowed::write(List<Person>& users)
 
 			while (borrowedHead)
 			{
-				file << personHead->get_current_data().get_ID()<<" ";
+				file << personHead->get_current_data().get_ID() << " ";
 				file << borrowedHead->get_current_data().get_resource_ID() << " ";
 				file << borrowedHead->get_current_data().get_borrow_date().date_to_string() << " ";
-				file << borrowedHead->get_current_data().get_deadline().date_to_string() << " ";
-			
-				file << std::endl;
+				file << borrowedHead->get_current_data().get_deadline().date_to_string();
 
 				borrowedHead = borrowedHead->get_next();
+				if (borrowedHead)
+					file << std::endl;
 			}
 
 			personHead = personHead->get_next();

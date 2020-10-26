@@ -90,7 +90,7 @@ int Borrowed::count_fine()
 	int diff = this->deadline - this->borrow_date;
 
 	if (diff < 0)
-		return (diff * PRICE);
+		return (diff * PRICE *(-1));
 	else
 		return 0;
 }

@@ -24,12 +24,6 @@ void Functions::borrow(Library& library, List<Person>& users)
 		if (resource_id[0] == 'K')
 		{
 			Node<Book>* book = library.books.get_element(resource_id);
-	/*		if (!book)
-			{
-				std::cout << std::endl;
-				text.display_red(" Nie znaleziono takiej ksiazki. ");
-				std::cout << std::endl;
-			}*/
 			if(book)
 			{
 				is_founded = true;
@@ -43,12 +37,6 @@ void Functions::borrow(Library& library, List<Person>& users)
 		else if (resource_id[0] == 'C')
 		{
 			Node<CD>* cd = library.cds.get_element(resource_id);
-	/*		if (!cd)
-			{
-				std::cout << std::endl;
-				text.display_red(" Nie znaleziono takiej plyty. ");
-				std::cout << std::endl;
-			}*/
 			if(cd)
 			{
 				is_founded = true;
@@ -62,13 +50,6 @@ void Functions::borrow(Library& library, List<Person>& users)
 		else if (resource_id[0] == 'F')
 		{
 			Node<Movie>* movie = library.movies.get_element(resource_id);
-		/*	if (!movie)
-			{
-
-				std::cout << std::endl;
-				text.display_red(" Nie znaleziono takiego filmu. ");
-				std::cout << std::endl;
-			}*/
 			if(movie)
 			{
 				is_founded = true;
@@ -79,12 +60,6 @@ void Functions::borrow(Library& library, List<Person>& users)
 					is_available = false;
 			}
 		}
-	/*	else
-		{
-			std::cout << std::endl;
-			text.display_red(" Nie istnieje taki zasob. ");
-			std::cout << std::endl;
-		}*/
 	}
 	if (person == nullptr)
 	{
@@ -147,8 +122,6 @@ void Functions::make_a_return(Library& library, List<Person>& users)
 
 		if (nodeP->get_current_data().borrowed_resources.get_head())
 		{
-			nodeP->get_current_data().borrowed_resources.display_list();
-			users.display_list();
 			std::cout << std::endl;
 
 			std::cout << "\n Podaj ID zasobu: ";
@@ -161,9 +134,9 @@ void Functions::make_a_return(Library& library, List<Person>& users)
 
 				if (fine > 0)
 				{
-					std::cout << "\n Opznienie w oddaniu: " << resource->get_current_data().get_deadline() - resource->get_current_data().get_borrow_date() << " dni.";
+					std::cout << "\n Opznienie w oddaniu: " <<fine/PRICE << " dni.";
 					std::cout << " Do zaplaty: " << fine << " zl." << std::endl;
-					std::cout << "\n Wcisnij '1', aby potwierdzic orzymanie zaplaty. \n Wcisnij dowolny klawisz, aby anulowac zwrot. ";
+					std::cout << "\n Wcisnij '1', aby potwierdzic orzymanie zaplaty. \n Wcisnij dowolny klawisz, aby anulowac zwrot. \n";
 					std::cout << " >  ";
 					std::cin >> ch;
 					if (ch != '1')
@@ -175,6 +148,12 @@ void Functions::make_a_return(Library& library, List<Person>& users)
 				}
 
 				nodeP->get_current_data().borrowed_resources.delete_element(resource);
+
+
+				std::cout << std::endl;
+				std::cout << std::endl;
+				text.display_green(" Dokonano zwrotu. ");
+				std::cout << std::endl;
 
 				if (resource_id[0] == 'K')
 				{
@@ -207,13 +186,13 @@ void Functions::make_a_return(Library& library, List<Person>& users)
 					Node<Movie>* movie = library.movies.get_element(resource_id);
 					if (!movie)
 					{
-
 						std::cout << std::endl;
 						text.display_red(" Nie znaleziono takiego filmu w bibliotece. ");
 						std::cout << std::endl;
 					}
 					else
 						movie->get_current_data().change_availability(true);
+
 				}
 				else
 				{
@@ -225,7 +204,7 @@ void Functions::make_a_return(Library& library, List<Person>& users)
 			else
 			{
 				std::cout << std::endl;
-				text.display_red(" Ta osoba nie wypozyczyla takiej ksiazki. ");
+				text.display_red(" Ta osoba nie wypozyczyla takiego zasobu. ");
 				std::cout << std::endl;
 			}
 		}

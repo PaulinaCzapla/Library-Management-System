@@ -1,4 +1,4 @@
-K000001GL2 Stephen King 2017 1 Bastion
+K000002GL1 J.K. Rowling 2010 1 Harry Potter i komnata tajemnic
 K000002GL2 Stephen King 2005 1 Instytut
 K000013GL2 Stephen King 2005 1 Jest krew
 K000353GL2 Stephen King 2005 1 To
