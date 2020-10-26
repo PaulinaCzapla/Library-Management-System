@@ -28,7 +28,7 @@ void Borrowed::display(Library* libraries)
 			auto element = libraries[0].books.get_element(this->resource_ID);
 			if (element)
 			{
-				std::cout << "Typ: ksiazka " << element->get_current_data().get_ID() << " " << element->get_current_data().get_authors_name() << " \"" << element->get_current_data().get_title() << "\" " << element->get_current_data().get_date_string() << std::endl;
+				std::cout << "Typ: ksiazka " << element->get_current_data().get_ID() << " " << element->get_current_data().get_authors_name() << " \"" << element->get_current_data().get_title() << "\" " << element->get_current_data().get_year_string() << std::endl;
 				std::cout << " wypozyczono: " << this->borrow_date << " termin oddania: " << this->deadline;
 				break;
 			}
@@ -41,7 +41,7 @@ void Borrowed::display(Library* libraries)
 			auto element = libraries[0].cds.get_element(this->resource_ID);
 			if (element)
 			{
-				std::cout << "Typ: plyta CD " << element->get_current_data().get_ID() << " " << element->get_current_data().get_authors_name() << " \"" << element->get_current_data().get_title() << "\" " << element->get_current_data().get_date_string() << std::endl;
+				std::cout << "Typ: plyta CD " << element->get_current_data().get_ID() << " " << element->get_current_data().get_authors_name() << " \"" << element->get_current_data().get_title() << "\" " << element->get_current_data().get_year_string() << std::endl;
 				std::cout << " wypozyczono: " << this->borrow_date << " termin oddania: " << this->deadline;
 				break;
 			}
@@ -54,7 +54,7 @@ void Borrowed::display(Library* libraries)
 			auto element = libraries[0].movies.get_element(this->resource_ID);
 			if (element)
 			{
-				std::cout << "Typ: film " << element->get_current_data().get_ID() << " " << element->get_current_data().get_authors_name() << " \"" << element->get_current_data().get_title() << "\" " << element->get_current_data().get_date_string() << std::endl;
+				std::cout << "Typ: film " << element->get_current_data().get_ID() << " " << element->get_current_data().get_authors_name() << " \"" << element->get_current_data().get_title() << "\" " << element->get_current_data().get_year_string() << std::endl;
 				std::cout << " wypozyczono: " << this->borrow_date << " termin oddania: " << this->deadline;
 				break;
 			}
@@ -93,4 +93,12 @@ int Borrowed::count_fine()
 		return (diff * PRICE);
 	else
 		return 0;
+}
+
+bool Borrowed::operator==(const std::string& id)
+{
+	if (id.compare(this->resource_ID) == 0)
+		return true;
+	else
+		return false;
 }

@@ -64,7 +64,6 @@ void Node<T>::display()
 }
 
 
-
 template <typename T>
 void Node<T>::set_next(Node<T>* next_)
 {
@@ -119,6 +118,16 @@ bool Node<T>::operator==(const std::string& id)
 	else
 		return false;
 }
+
+//template <>
+//bool Node<Person>::operator==(const std::string& id)
+//{
+//	if (this->data == id)
+//		return true;
+//	else
+//		return false;
+//}
+
 
 template <typename T>
 Node<T>::~Node()

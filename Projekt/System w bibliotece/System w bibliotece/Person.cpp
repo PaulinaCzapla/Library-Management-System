@@ -13,7 +13,7 @@ Person::Person(std::string id_, std::string name_, Date date_, std::string addre
 Person::Person(std::string id_, std::string name_, Date date_, std::string address_, std::string phone_)
 {
 	this->ID = id_;
-	this->name = name;
+	this->name = name_;
 	this->birth_date = date_;
 	this->address = address_;
 	this->phone_number = phone_;

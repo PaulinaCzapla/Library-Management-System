@@ -1,85 +1,84 @@
 #include "Menu.h"
 
-void Menu::main_menu(Library* libraries, List<Person>& users)
+void Menu::main_menu(Library& main_library, Library& library2, Library& library3, List<Person>& users)
 {
 	for (;;)
 	{
 		system("cls");
-		printf("\n");
-		printf("\n                                           System biblioteczny\n\n");
-		printf("                                            [1] Wypozycz \n");
-		printf("                                            [2] Dodaj zwrot \n");
-		printf("                                            [3] Baza uzytkownikow \n");
-		printf("                                            [4] Zasoby biblioteki \n");
-		printf("                                            [5] Zasoby bibiotek zewnetrznych\n");
-		printf("                                            [6] Zapisz zmiany \n");
-		printf("                                            [0] Zamknij program \n");
-		printf("\n");
+		std::cout << std::endl;
+		std::cout << "\n                                           System biblioteczny\n\n";
+		std::cout << "                                            [1] Wypozycz \n";
+		std::cout << "                                            [2] Dodaj zwrot \n";
+		std::cout << "                                            [3] Baza uzytkownikow \n";
+		std::cout << "                                            [4] Zasoby biblioteki \n";
+		std::cout << "                                            [5] Zasoby bibiotek zewnetrznych\n";
+		std::cout << "                                            [0] Zapisz i wyjdz \n";
+		std::cout << std::endl;
 
 		char ch, tmp;
 		Functions function;
 
-		for(;;)
+		for (;;)
 		{
-			std::cout<<" >  ";
+			std::cout << " >  ";
 			std::cin >> ch;
+			while ((tmp = getchar()) != '\n');
 
 			if (ch == '0')
 			{
 				break;
 			}
-				
+
 
 			switch (ch)
 			{
 			case '1':
-				function.borrow(libraries, users);
+				function.borrow(main_library, users);
 				break;
 			case '2':
-				function.make_a_return(libraries, users);
+				function.make_a_return(main_library, users);
 				break;
 			case '3':
 				this->users_menu(users);
 				break;
 			case '4':
-	
+				this->resources_menu(main_library);
 				break;
 			case '5':
-
-				break;
-			case '6':
-	
+				this->external_libraries_menu(main_library, library2, library3);
 				break;
 			default:
-				//alert
+				this->text.display_red(" Brak takiej opcji. \n");
 				continue;
 			}
 			break;
 		}
 		if (ch == '0')
 			break;
-
 	}
 }
-void Menu::resources_menu()
+void Menu::resources_menu(Library& library)
 {
+	Functions functions;
+	char tmp;
 	for (;;)
 	{
 		system("cls");
-		printf("\n");
-		printf("\n                                           Zasoby biblioteki\n\n");
-		printf("                                            [1] Wyswietl \n");
-		printf("                                            [2] Dodaj nowe zasoby \n");
-		printf("                                            [3] Usun zasob\n");
-		printf("                                            [0] Wyjdz \n");
-		printf("\n");
+		std::cout << std::endl;
+		std::cout << "\n                                           Zasoby biblioteki\n\n";
+		std::cout << "                                            [1] Wyswietl zasoby\n";
+		//		std::cout << "                                            [2] Wyswietl po ID\n";
+		std::cout << "                                            [2] Dodaj nowe zasoby \n";
+		std::cout << "                                            [3] Usun zasob\n";
+		std::cout << "                                            [0] Wyjdz \n";
+		std::cout << std::endl;
 		char ch, tmp;
 
 		for (;;)
 		{
+
 			std::cout << " >  ";
 			std::cin >> ch;
-
 			while ((tmp = getchar()) != '\n');
 
 			if (ch == '0')
@@ -88,19 +87,25 @@ void Menu::resources_menu()
 			switch (ch)
 			{
 			case '1':
-			
+				this->display_library_menu(library);
 				break;
+				/*		case '2':
+							functions.search_library(library);
+							std::cout << std::endl;
+							std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+							_getch();
+							break;*/
 			case '2':
-		
+				this->add_resource_menu(library);
 				break;
 			case '3':
-			
 
+				functions.delete_resource(library);
 				break;
-		
+
 			default:
 			{
-				//alert
+				this->text.display_red(" Brak takiej opcji. \n");
 				continue;
 			}
 			}
@@ -112,27 +117,27 @@ void Menu::resources_menu()
 
 }
 
-void Menu::external_libraries_menu()
+
+void Menu::display_library_menu(Library& library)
 {
 	for (;;)
 	{
-
 		system("cls");
-		printf("\n");
-		printf("\n                                     Zasoby bibliotek zewnetrznych\n\n");
-		printf("                                            [1] Przeszukaj zasoby \n");
-		printf("                                            [2] Wypozycz \n");
-		printf("                                            [3] Zwroc \n");
-		printf("                                            [0] Wyjdz \n");
-		printf("\n");
-
+		std::cout << std::endl;
+		std::cout << "\n                                            Wyswietl zasoby\n\n";
+		std::cout << "                                            [1] Wyswietl wszystkie ksiazki \n";
+		std::cout << "                                            [2] Wyswietl wszystkie plyty \n";
+		std::cout << "                                            [3] Wyswietl wszystkie filmy \n";
+		std::cout << "                                            [4] Wyswietl po ID \n";
+		std::cout << "                                            [0] Wyjdz \n";
+		std::cout << std::endl;
 		char ch, tmp;
-
+		Functions function;
 		for (;;)
 		{
+
 			std::cout << " >  ";
 			std::cin >> ch;
-
 			while ((tmp = getchar()) != '\n');
 
 			if (ch == '0')
@@ -141,19 +146,36 @@ void Menu::external_libraries_menu()
 			switch (ch)
 			{
 			case '1':
-
+				library.books.display_list();
+				std::cout << std::endl;
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
 				break;
-			case '2':
 
+			case '2':
+				library.cds.display_list();
+				std::cout << std::endl;
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
 				break;
 			case '3':
-
-
+				library.movies.display_list();
+				std::cout << std::endl;
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
 				break;
-
+			case '4':
+				function.search_library(library);
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
+				break;
 			default:
 			{
-				//alert
+				this->text.display_red(" Brak takiej opcji. \n");
 				continue;
 			}
 			}
@@ -162,7 +184,116 @@ void Menu::external_libraries_menu()
 		if (ch == '0')
 			break;
 	}
-	
+}
+
+void Menu::add_resource_menu(Library& library)
+{
+	for (;;)
+	{
+		system("cls");
+		std::cout << std::endl;
+		std::cout << "\n                                           Dodawanie zasobow\n\n";
+		std::cout << "                                            [1] Dodaj ksiazke \n";
+		std::cout << "                                            [2] Dodaj plyte \n";
+		std::cout << "                                            [3] Dodaj film \n";
+		std::cout << "                                            [0] Wyjdz \n";
+		std::cout << std::endl;
+		char ch, tmp;
+		Functions function;
+		for (;;)
+		{
+			std::cout << " >  ";
+			std::cin >> ch;
+			while ((tmp = getchar()) != '\n');
+
+			if (ch == '0')
+				break;
+
+			switch (ch)
+			{
+			case '1':
+				function.add_new_book(library);
+				break;
+			case '2':
+				function.add_new_cd(library);
+				break;
+			case '3':
+				function.add_new_movie(library);
+				break;
+
+			default:
+			{
+				this->text.display_red(" Brak takiej opcji. \n");
+				continue;
+			}
+			}
+			break;
+		}
+		if (ch == '0')
+			break;
+	}
+}
+
+void Menu::external_libraries_menu(Library& library, Library& library2, Library& library3)
+{
+	for (;;)
+	{
+
+		system("cls");
+		printf("\n");
+		printf("\n                                         Zasoby bibliotek zewnetrznych\n\n");
+		printf("                                            [1] Przeszukaj zasoby \n"); //
+		printf("                                            [2] Wyswietl zasoby bibliotek\n"); //
+		printf("                                            [3] Wyswietl sprowadzone zasoby \n"); //
+		printf("                                            [4] Sprowadz z biblioteki zewnetrznej\n");
+		printf("                                            [5] Zwroc/wypozycz bibliotece zewnetrznej\n");
+		printf("                                            [0] Wyjdz \n");
+		printf("\n");
+
+		std::string gl1 = "GL1";
+		char ch, tmp;
+		Functions function;
+		for (;;)
+		{
+			std::cout << " >  ";
+			std::cin >> ch;
+			while ((tmp = getchar()) != '\n');
+
+			if (ch == '0')
+				break;
+
+			switch (ch)
+			{
+			case '1':
+				this->libraries_menu(library, library2, library3, 1);
+				break;
+			case '2':
+				this->libraries_menu(library, library2, library3, 2);
+				break;
+
+			case '3':
+				function.show_imported_resources(library, gl1);
+				break;
+
+			case '4':
+				this->libraries_menu(library, library2, library3, 3);
+				break;
+			case '5':
+				this->libraries_menu(library, library2, library3, 4);
+				break;
+
+			default:
+			{
+				this->text.display_red(" Brak takiej opcji. \n");
+				continue;
+			}
+			}
+			break;
+		}
+		if (ch == '0')
+			break;
+	}
+
 }
 
 void Menu::users_menu(List<Person>& users)
@@ -181,11 +312,12 @@ void Menu::users_menu(List<Person>& users)
 
 		char ch, tmp;
 		Functions functions;
+		//Text text;
+
 		for (;;)
 		{
 			std::cout << " >  ";
 			std::cin >> ch;
-
 			while ((tmp = getchar()) != '\n');
 
 			if (ch == '0')
@@ -209,14 +341,14 @@ void Menu::users_menu(List<Person>& users)
 			case '3':
 				functions.add_new_user(users);
 				break;
-				
+
 			case '4':
 				functions.delete_user(users);
 				break;
 
 			default:
 			{
-				//alert
+				this->text.display_red(" Brak takiej opcji. \n");
 				continue;
 			}
 			}
@@ -225,5 +357,77 @@ void Menu::users_menu(List<Person>& users)
 		if (ch == '0')
 			break;
 
+	}
+}
+
+void Menu::libraries_menu(Library& library, Library& library2, Library& library3, short int option)
+{
+	for (;;)
+	{
+
+		system("cls");
+		printf("\n");
+		printf("\n                                         Dostepne biblioteki zewnetrzne\n\n");
+		printf("                                            [1] Biblioteka nr 2\n");
+		printf("                                            [2] Biblioteka nr 3 \n");
+		printf("                                            [0] Wyjdz \n");
+		printf("\n");
+
+		Functions function;
+		char ch, tmp;
+
+		for (;;)
+		{
+			std::cout << " >  ";
+			std::cin >> ch;
+			while ((tmp = getchar()) != '\n');
+
+			if (ch == '0')
+				break;
+
+			switch (ch)
+			{
+			case '1':
+				if (option == 2)
+					this->display_library_menu(library2);
+				else if (option == 1)
+				{
+					function.search_library(library2);
+					std::cout << std::endl;
+					std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+					_getch();
+				}
+				else if (option == 3)
+					function.import_resource(library, library2);
+				else if (option == 4)
+					function.import_resource(library2, library);
+				break;
+			case '2':
+				if (option == 2)
+					this->display_library_menu(library3);
+
+				else if (option == 1)
+				{
+					function.search_library(library3);
+					std::cout << std::endl;
+					std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+					_getch();
+				}
+				else if (option == 3)
+					function.import_resource(library, library3);
+				else if (option == 4)
+					function.import_resource(library3, library);
+				break;
+
+			default:
+			{
+				this->text.display_red(" Brak takiej opcji. \n");
+				continue;
+			}
+			}
+			break;
+		}
+		if (ch == '0')
+			break;
 	}
 }

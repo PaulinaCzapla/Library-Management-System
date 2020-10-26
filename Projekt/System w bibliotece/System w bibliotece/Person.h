@@ -8,16 +8,19 @@
 
 class Person
 {
-	friend std::ostream& operator<<(std::ostream& output, Person const& data);
+	friend std::ostream& operator<<(std::ostream& output, Person & data);
+//	friend bool operator==(const Person&, const std::string&);
 	
 	std::string name;
 	Date birth_date;
 	std::string address;
 	std::string phone_number;
+std::string ID;
 
 public:
 
-std::string ID;
+
+
 	List <Borrowed> borrowed_resources;
 
 	Person(std::string, std::string, Date, std::string, std::string , List <Borrowed>);
