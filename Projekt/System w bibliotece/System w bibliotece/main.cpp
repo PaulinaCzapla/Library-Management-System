@@ -145,18 +145,17 @@ int main()
 	
 		
 		Menu menu;
-		//main_library.books.display_list();
-		//users.display_list();
+		Sleep(1000);
 		menu.main_menu(main_library, library2, library3, users);
 
-		//file_main_library.write(main_library);
-		//file_library2.write(library2);
-		//file_library3.write(library3);
+		file_main_library.write(main_library);
+		file_library2.write(library2);
+		file_library3.write(library3);
 
-		//personal_data.write(users);
+		personal_data.write(users);
 
-		//borrowed.write(users);
-		//users.display_list();
+		borrowed.write(users);
+		
 
 	}
 

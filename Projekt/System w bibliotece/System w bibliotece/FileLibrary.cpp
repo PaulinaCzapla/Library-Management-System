@@ -9,6 +9,7 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 	Text text;
 	std::fstream file;
 	file.open(this->filename, std::ios::in);
+	char space[2];
 
 	if (this->check(file))
 	{
@@ -39,6 +40,7 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 					name = name + " " + tmp;
 				}
 				file >> is_available;
+				file.read(space, 1);
 				getline(file, title);
 
 				date = "01.01." + date;
@@ -118,34 +120,37 @@ void FileLibrary::write(Library& library)
 			file << tmpB->get_current_data().get_authors_name() << " ";
 			file << tmpB->get_current_data().get_year_string() << " ";
 			file << tmpB->get_current_data().get_availability() << " ";
-			file << tmpB->get_current_data().get_title() << " ";
-			file << std::endl;
+			file << tmpB->get_current_data().get_title();
 
 			tmpB = tmpB->get_next();
+			if (tmpB)
+				file << std::endl;
 		}
 
 		while (tmpC)
 		{
-			file << tmpC->get_current_data().get_ID();
-			file << tmpC->get_current_data().get_authors_name();
-			file << tmpC->get_current_data().get_year_string();
-			file << tmpC->get_current_data().get_availability();
+			file << tmpC->get_current_data().get_ID() << " ";
+			file << tmpC->get_current_data().get_authors_name() << " ";
+			file << tmpC->get_current_data().get_year_string() << " ";
+			file << tmpC->get_current_data().get_availability() << " ";
 			file << tmpC->get_current_data().get_title();
-			file << std::endl;
 
 			tmpC = tmpC->get_next();
+			if (tmpC)
+				file << std::endl;
 		}
 
 		while (tmpM)
 		{
-			file << tmpM->get_current_data().get_ID();
-			file << tmpM->get_current_data().get_authors_name();
-			file << tmpM->get_current_data().get_year_string();
-			file << tmpM->get_current_data().get_availability();
+			file << tmpM->get_current_data().get_ID() << " ";
+			file << tmpM->get_current_data().get_authors_name() << " ";
+			file << tmpM->get_current_data().get_year_string() << " ";
+			file << tmpM->get_current_data().get_availability() << " ";
 			file << tmpM->get_current_data().get_title();
-			file << std::endl;
 
 			tmpM = tmpM->get_next();
+			if (tmpM)
+				file << std::endl;
 		}
 
 		text.display_green(" Zapisano. ");

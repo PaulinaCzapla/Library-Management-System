@@ -11,15 +11,16 @@ void FilePersonalData::read(List<Person>& users)// 55082998585 Anastazja Wlodarc
 	Text text;
 	std::fstream file;
 	file.open(this->filename, std::ios::in);
-
+	char space[2];
 	if (this->check(file))
 	{
-		std::string ID, name,  date, phone, address, tmp;
+		std::string ID, name, date, phone, address, tmp;
 		int i = 0;
 		bool digit;
 
 		while (!file.eof())
 		{
+			i++;
 			if (file >> ID >> name)
 			{
 				digit = false;
@@ -40,10 +41,9 @@ void FilePersonalData::read(List<Person>& users)// 55082998585 Anastazja Wlodarc
 
 					name = name + " " + tmp;
 				}
-
 				file >> phone;
 
-				i++;
+				file.read(space, 1);
 				getline(file, address);
 				Date date_cl(date);
 
@@ -88,9 +88,10 @@ void FilePersonalData::write(List<Person>& users)
 			file << personHead->get_current_data().get_string_date() << " ";
 			file << personHead->get_current_data().get_phone_number() << " ";
 			file << personHead->get_current_data().get_address();
-			file << std::endl;
 
 			personHead = personHead->get_next();
+			if (personHead)
+				file << std::endl;
 		}
 
 		text.display_green(" Zapisano. ");
