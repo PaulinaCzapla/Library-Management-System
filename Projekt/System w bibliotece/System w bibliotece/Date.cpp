@@ -64,6 +64,11 @@ std::string Date::date_to_string()
 
 }
 
+std::string Date::year_to_string()
+{
+	return std::to_string(this->year);
+}
+
 bool Date::check()
 {
 	int daysInMonth[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
@@ -140,21 +145,21 @@ Date Date::operator+ (const int& other) const
 	tmp = this->day + other;
 
 	Date date;
-
+	months = this->month;
 	if (tmp > daysInMonth[this->month])
 	{
 		for (int i = this->month; ; i++)
 		{
-			if (this->month + i > 12)
+			if (i > 12)
 			{
-				i = 0;
+				i = 1;
 				year++;
 				months = 0;
 			}
-			tmp -= daysInMonth[i];
+			tmp -= daysInMonth[i-1];
 			months++;
 
-			if (daysInMonth[i] >= tmp)
+			if (daysInMonth[i-1] >= tmp)
 			{
 				date.set_day(tmp);
 				date.set_month(months);

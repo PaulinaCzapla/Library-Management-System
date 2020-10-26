@@ -24,6 +24,7 @@ public:
 	void set_year(short unsigned int);
 	void set_date_from_string(std::string);
 	std::string date_to_string();
+	std::string year_to_string();
 	bool check();
 	bool check_string(std::string);
 	//std::ostream& operator<< (std::ostream&);
