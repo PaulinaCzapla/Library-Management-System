@@ -12,14 +12,14 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 
 	if (this->check(file))
 	{
-		std::string ID, name, surname, date, title, tmp;
+		std::string ID, name, surname, date, title, tmp, tmp2 = "";
 		bool is_available, digit;
 		int i = 0;
 		while (!file.eof())
 		{
-			if (file >> ID >> name) 
+			if (file >> ID >> name)
 			{
-
+				i++;
 				digit = false;
 				tmp = name;
 				for (int j = 0; ; j++)
@@ -38,31 +38,43 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 
 					name = name + " " + tmp;
 				}
-
 				file >> is_available;
-
-				i++;
 				getline(file, title);
+
 				date = "01.01." + date;
 				Date date_cl(date);
+
+				tmp2 = "";
+				tmp2 += ID[7];
+				tmp2 += ID[8];
+				tmp2 += ID[9];
 
 				if (ID[0] == 'K')
 				{
 					Book book(ID, name, date_cl, title, is_available);
 					Node<Book>* nodeb = new Node<Book>(book);
 					library.books.push_front(nodeb);
+
+					if (tmp2.compare("GL1") != 0)
+						library.books.decrease_counter();
 				}
 				else if (ID[0] == 'C')
 				{
 					CD cd(ID, name, date_cl, title, is_available);
 					Node<CD>* nodec = new Node<CD>(cd);
 					library.cds.push_front(nodec);
+
+					if (tmp2.compare("GL1") != 0)
+						library.cds.decrease_counter();
 				}
 				else if (ID[0] == 'F')
 				{
 					Movie movie(ID, name, date_cl, title, is_available);
 					Node<Movie>* nodem = new Node<Movie>(movie);
 					library.movies.push_front(nodem);
+
+					if (tmp2.compare("GL1") != 0)
+						library.movies.decrease_counter();
 				}
 				else
 					continue;
