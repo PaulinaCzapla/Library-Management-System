@@ -2,11 +2,12 @@
 #ifndef MENU_H
 #define MENU_H
 #include <iostream>
-#include "Functions.h"
 
-class Menu
+#include "LibraryUserActions.h"
+#include "LibraryActions.h"
+
+class Menu : public LibraryUserActions, public LibraryActions, public Text
 {
-	Text text;
 public:
 	void main_menu(Library&, Library&, Library&, List<Person>&);
 	void resources_menu(Library&);

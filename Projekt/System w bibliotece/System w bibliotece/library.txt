@@ -1,13 +1,15 @@
-K000001GL2 Stephen King 2017 1 Bastion
-K000001GL1 Huxley Aldous 2011 0 Nowy Wspanialy Swiat
-K000003GL1 J.K. Rowling 2011 1 Harry Potter i kamien filozoficzny
-K000004GL1 J.K. Rowling 2015 1 Harry Potter i kamien filozoficzny
-K000005GL1 J.K. Rowling 2015 1 Harry Potter i czara ognia
-K000006GL1 J.K. Rowling 2011 1 Harry Potter i insygnia smierci
-K000007GL1 J.K. Rowling 2015 1 Harry Potter i wiezien azkabanu
-K000008GL1 J.K. Rowling 2015 1 Harry Potter i ksiaze polkrwi
-K000010GL1 Hugh Howey 2017 1 Silos. Tom 1
-K000011GL1 Hugh Howey 2014 1 Zmiana. Tom 2
-K000012GL1 Hugh Howey 2014 1 Pyl. Tom 3
-K000013GL1 Simon Beckett 2006 1 Chemia smierci
 K000014GL1 George Orwell 2005 1 Rok 1984
+K000013GL1 Simon Beckett 2006 1 Chemia smierci
+K000012GL1 Hugh Howey 2014 1 Pyl. Tom 3
+K000011GL1 Hugh Howey 2014 1 Zmiana. Tom 2
+K000010GL1 Hugh Howey 2017 1 Silos. Tom 1
+K000008GL1 J.K. Rowling 2015 1 Harry Potter i ksiaze polkrwi
+K000007GL1 J.K. Rowling 2015 1 Harry Potter i wiezien azkabanu
+K000006GL1 J.K. Rowling 2011 1 Harry Potter i insygnia smierci
+K000005GL1 J.K. Rowling 2015 1 Harry Potter i czara ognia
+K000004GL1 J.K. Rowling 2015 1 Harry Potter i kamien filozoficzny
+K000003GL1 J.K. Rowling 2011 0 Harry Potter i kamien filozoficzny
+K000001GL1 Huxley Aldous 2011 0 Nowy Wspanialy Swiat
+K000001GL2 Stephen King 2017 1 Bastion
+K000015GL1 Andy Weir 2013 1 Marsjanin
+K000016GL1 Dmitry Glukhowsky 2013 1 Metro 2033

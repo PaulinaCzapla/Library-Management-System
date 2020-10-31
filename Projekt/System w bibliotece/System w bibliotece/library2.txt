@@ -1,10 +1,10 @@
-K000002GL1 J.K. Rowling 2010 1 Harry Potter i komnata tajemnic
-K000002GL2 Stephen King 2005 1 Instytut
-K000013GL2 Stephen King 2005 1 Jest krew
-K000353GL2 Stephen King 2005 1 To
-K000231GL2 Stephen King 2005 1 Smetarz dla zwierzakow
-K000111GL2 Stephen King 2005 1 Wielki marsz
 K003221GL2 Stephen King 2005 1 Misery
-C003251GL2 Katy Perry 2015 1 Smile
-C023444GL2 OneRepublic 2017 1 Live In South Africa
+K000111GL2 Stephen King 2005 1 Wielki marsz
+K000231GL2 Stephen King 2005 1 Smetarz dla zwierzakow
+K000353GL2 Stephen King 2005 1 To
+K000013GL2 Stephen King 2005 1 Jest krew
+K000002GL2 Stephen King 2005 1 Instytut
+K000002GL1 J.K. Rowling 2010 1 Harry Potter i komnata tajemnic
 C000005GL2 Stephen King 2005 1 Misery
+C023444GL2 OneRepublic 2017 1 Live In South Africa
+C003251GL2 Katy Perry 2015 1 Smile

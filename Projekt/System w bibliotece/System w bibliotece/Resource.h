@@ -11,7 +11,7 @@
 
 class Resource 
 {
-	friend std::ostream& operator<< (std::ostream&, Resource const&);
+	friend std::ostream& operator<< (std::ostream&, Resource&);
 protected:
 	std::string ID;
 	std::string authors_name;

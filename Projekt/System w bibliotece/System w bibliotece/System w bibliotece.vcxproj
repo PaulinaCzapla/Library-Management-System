@@ -147,14 +147,16 @@
     <ClInclude Include="FileBorrowed.h" />
     <ClInclude Include="FileLibrary.h" />
     <ClInclude Include="FilePersonalData.h" />
-    <ClInclude Include="Functions.h" />
     <ClInclude Include="Library.h" />
+    <ClInclude Include="LibraryActions.h" />
+    <ClInclude Include="LibraryUserActions.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ResourcesActions.h" />
     <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>
@@ -165,14 +167,19 @@
     <ClCompile Include="FileBorrowed.cpp" />
     <ClCompile Include="FileLibrary.cpp" />
     <ClCompile Include="FilePersonalData.cpp" />
-    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Library.cpp" />
+    <ClCompile Include="LibraryActions.cpp" />
+    <ClCompile Include="LibraryUserActions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="ResourcesActions.cpp" />
     <ClCompile Include="Text.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

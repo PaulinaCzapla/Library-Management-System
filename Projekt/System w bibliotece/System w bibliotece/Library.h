@@ -1,7 +1,7 @@
 #pragma once
 #ifndef LIBRARY_H
 #define LIBRARY_H
-#include "List.h" //node
+#include "List.h" 
 
 
 #define LIBRARIES_NUM 3
