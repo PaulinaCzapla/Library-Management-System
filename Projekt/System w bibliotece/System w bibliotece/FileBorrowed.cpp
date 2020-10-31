@@ -6,8 +6,8 @@
 FileBorrowed::FileBorrowed(std::string filename_) : File<List<Person>>(filename_) {}
 
 
-void FileBorrowed::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 1955-08-29 414508198 Chorzow, Kujawska 5
-{ // ID osoby , ID ksiazki , data wyp , deadline
+void FileBorrowed::read(List<Person>& users)
+{ 
 	Text text;
 	std::fstream file;
 	file.open(this->filename, std::ios::in);
@@ -37,10 +37,12 @@ void FileBorrowed::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 
 			else
 			{
 				if (i == 0)
+				{
+					text.display_red(" Blad. Nieprawidlowy format pliku ");
+					std::cout << this->filename << std::endl;
 					break;
-				text.display_red(" Blad. Nieprawidlowy format pliku ");
-				std::cout << this->filename << std::endl;
-				break;
+				}
+
 			}
 		}
 	}
@@ -63,7 +65,7 @@ void FileBorrowed::write(List<Person>& users)
 	auto personHead = users.get_head();
 
 
-	if (this->check(file)) // 55082998585 Anastazja Wlodarczyk 1955-08-29 414508198 Chorzow, Kujawska 5
+	if (this->check(file)) 
 	{
 		while (personHead)
 		{
@@ -75,10 +77,8 @@ void FileBorrowed::write(List<Person>& users)
 				file << borrowedHead->get_current_data().get_resource_ID() << " ";
 				file << borrowedHead->get_current_data().get_borrow_date().date_to_string() << " ";
 				file << borrowedHead->get_current_data().get_deadline().date_to_string();
-
+				file << std::endl;
 				borrowedHead = borrowedHead->get_next();
-				if (borrowedHead)
-					file << std::endl;
 			}
 
 			personHead = personHead->get_next();

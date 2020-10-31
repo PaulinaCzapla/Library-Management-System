@@ -17,8 +17,7 @@ public:
 	int size(); //zwraca iloœæ elementów listy
 	Node<T>* get_head();
 	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
-	//Node <T>* get_element(T);
-	void decrease_counter();
+	void set_counter(int);
 	T& get_data(Node<T>*);
 
 	~List();
@@ -34,7 +33,6 @@ List<T>::List()
 template<typename T>
 Node<T>* List<T>::push_front(Node<T>* node_)
 {
-	counter++;
 	node_->set_next(this->head);
 	node_->set_prev(nullptr);
 
@@ -61,7 +59,6 @@ Node<T>* List<T>::delete_element(Node<T>* node_)
 	delete node_;
 	node_ = nullptr;
 
-	counter--;
 	return this->head;
 }
 
@@ -80,20 +77,6 @@ Node<T>* List<T>::get_element(std::string id)
 	return nullptr;
 }
 
-//template<typename T>
-//Node<T>* List<T>::get_element(T id)
-//{
-//    Node<T>* tmp = this->head;
-//
-//    while (tmp)
-//    {
-//        if (tmp->get_current_data() == id)
-//            return tmp;
-//        else
-//            tmp = tmp->get_next();
-//    }
-//    return nullptr;
-//}
 
 template<typename T>
 void List<T>::display_list()
@@ -114,9 +97,9 @@ int List<T>::size()
 }
 
 template<typename T>
-void List<T>::decrease_counter()
+void List<T>::set_counter(int counter_)
 {
-	this->counter--;
+	this->counter = counter_;
 }
 
 template<typename T>
@@ -138,7 +121,6 @@ List<T>::~List()
 
 	while (this->head)
 	{
-		counter--;
 		p = this->head->get_next();
 		delete this->head;
 		this->head = p;

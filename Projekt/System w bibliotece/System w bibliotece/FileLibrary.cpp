@@ -10,10 +10,12 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 	std::fstream file;
 	file.open(this->filename, std::ios::in);
 	char space[2];
+	int counter_books = 0, counter_cds = 0, counter_movies = 0;
+	int tmpcounter;
 
 	if (this->check(file))
 	{
-		std::string ID, name, surname, date, title, tmp, tmp2 = "";
+		std::string ID, name, surname, date, title, tmp, tmp2 = "", lib_sign;
 		bool is_available, digit;
 		int i = 0;
 		while (!file.eof())
@@ -46,10 +48,18 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 				date = "01.01." + date;
 				Date date_cl(date);
 
+				lib_sign = "";
+				lib_sign += ID[7];
+				lib_sign += ID[8];
+				lib_sign += ID[9];
+
 				tmp2 = "";
-				tmp2 += ID[7];
-				tmp2 += ID[8];
-				tmp2 += ID[9];
+				tmp2 += ID[1];
+				tmp2 += ID[2];
+				tmp2 += ID[3];
+				tmp2 += ID[4];
+				tmp2 += ID[5];
+				tmp2 += ID[6];
 
 				if (ID[0] == 'K')
 				{
@@ -57,8 +67,16 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 					Node<Book>* nodeb = new Node<Book>(book);
 					library.books.push_front(nodeb);
 
-					if (tmp2.compare("GL1") != 0)
-						library.books.decrease_counter();
+					if (lib_sign.compare("GL1") == 0)
+					{
+						tmpcounter = (tmp2[0] - '0') * 100000 + (tmp2[1] - '0') * 10000 + (tmp2[2] - '0') * 1000 + (tmp2[3] - '0') * 100 + (tmp2[4] - '0') * 10 + (tmp2[5] - '0') ;
+						if (tmpcounter > counter_books)
+						{
+							counter_books = tmpcounter;
+							library.books.set_counter(counter_books);
+						}
+					}
+
 				}
 				else if (ID[0] == 'C')
 				{
@@ -66,8 +84,16 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 					Node<CD>* nodec = new Node<CD>(cd);
 					library.cds.push_front(nodec);
 
-					if (tmp2.compare("GL1") != 0)
-						library.cds.decrease_counter();
+					if (lib_sign.compare("GL1") == 0)
+					{
+						tmpcounter = (tmp2[0] - '0') * 1000000 + (tmp2[1] - '0') * 100000 + (tmp2[2] - '0') * 10000 + (tmp2[3] - '0') * 1000 + (tmp2[4] - '0') * 100 + (tmp2[5] - '0') * 10 + (tmp2[6] - '0');
+						if (tmpcounter > counter_cds)
+						{
+							counter_cds = tmpcounter;
+							library.cds.set_counter(counter_cds);
+						}
+					}
+
 				}
 				else if (ID[0] == 'F')
 				{
@@ -75,8 +101,15 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 					Node<Movie>* nodem = new Node<Movie>(movie);
 					library.movies.push_front(nodem);
 
-					if (tmp2.compare("GL1") != 0)
-						library.movies.decrease_counter();
+					if (lib_sign.compare("GL1") == 0)
+					{
+						tmpcounter = (tmp2[0] - '0') * 1000000 + (tmp2[1] - '0') * 100000 + (tmp2[2] - '0') * 10000 + (tmp2[3] - '0') * 1000 + (tmp2[4] - '0') * 100 + (tmp2[5] - '0') * 10 + (tmp2[6] - '0');
+						if (tmpcounter > counter_movies)
+						{
+							counter_movies = tmpcounter;
+							library.movies.set_counter(counter_movies);
+						}
+					}
 				}
 				else
 					continue;
