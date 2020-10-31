@@ -87,7 +87,9 @@ Date Borrowed::get_deadline()
 
 int Borrowed::count_fine()
 {
-	int diff = this->deadline - this->borrow_date;
+	Date date;
+	
+	int diff = this->deadline - date;
 
 	if (diff < 0)
 		return (diff * PRICE *(-1));
