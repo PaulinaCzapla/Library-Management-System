@@ -5,7 +5,6 @@ Node <Person>* LibraryUserActions::find_user_byID(List<Person>& users)
 	//	system("cls");
 	std::cout << std::endl;
 
-	Text text;
 	std::string person_id;
 	char ch;
 
@@ -21,7 +20,7 @@ Node <Person>* LibraryUserActions::find_user_byID(List<Person>& users)
 	}
 	else
 	{
-		text.display_red(" Nie ma takiej osoby.");
+		this->text.display_red(" Nie ma takiej osoby.");
 		std::cout << std::endl;
 	}
 
@@ -30,7 +29,6 @@ Node <Person>* LibraryUserActions::find_user_byID(List<Person>& users)
 
 void LibraryUserActions::add_new_user(List<Person>& users)
 {
-	Text text;
 	std::string person_id;
 	char ch;
 	Date date_cl;
@@ -58,7 +56,7 @@ void LibraryUserActions::add_new_user(List<Person>& users)
 			std::cin >> date;
 			if (date_cl.check_string(date))
 				break;
-			text.display_red(" Bledna data.");
+			this->text.display_red(" Bledna data.");
 			std::cout << std::endl;
 		}
 		date_cl.set_date_from_string(date);
@@ -84,7 +82,7 @@ void LibraryUserActions::add_new_user(List<Person>& users)
 
 			if (!number)
 			{
-				text.display_red(" Bledny numer telefonu. ");
+				this->text.display_red(" Bledny numer telefonu. ");
 				std::cout << std::endl;
 				number = true;
 			}
@@ -104,12 +102,12 @@ void LibraryUserActions::add_new_user(List<Person>& users)
 		Node<Person>* node = new Node<Person>(person);
 		users.push_front(node);
 		std::cout << std::endl;
-		text.display_green(" Uzytkownik zostal dodany. ");
+		this->text.display_green(" Uzytkownik zostal dodany. ");
 		std::cout << std::endl;
 	}
 	else
 	{
-		text.display_red(" Taki uzytkownik juz istnieje.");
+		this->text.display_red(" Taki uzytkownik juz istnieje.");
 		std::cout << std::endl;
 	}
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
@@ -118,7 +116,6 @@ void LibraryUserActions::add_new_user(List<Person>& users)
 
 void LibraryUserActions::delete_user(List<Person>& users)
 {
-	Text text;
 	char ch;
 	Node <Person>* node = this->find_user_byID(users);
 
@@ -136,7 +133,7 @@ void LibraryUserActions::delete_user(List<Person>& users)
 			{
 			case '1':
 				users.delete_element(node);
-				text.display_green(" Uzytkownik zostal usuniety. ");
+				this->text.display_green(" Uzytkownik zostal usuniety. ");
 				std::cout << std::endl;
 				std::cout << std::endl;
 

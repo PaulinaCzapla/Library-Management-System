@@ -6,7 +6,7 @@
 FilePersonalData::FilePersonalData(std::string filename_) : File<List<Person>>(filename_) {}
 
 
-void FilePersonalData::read(List<Person>& users)// 55082998585 Anastazja Wlodarczyk 1955-08-29 414508198 Chorzow, Kujawska 5
+void FilePersonalData::read(List<Person>& users)
 {
 	Text text;
 	std::fstream file;
@@ -78,8 +78,7 @@ void FilePersonalData::write(List<Person>& users)
 
 	auto personHead = users.get_head();
 
-
-	if (this->check(file)) // 55082998585 Anastazja Wlodarczyk 1955-08-29 414508198 Chorzow, Kujawska 5
+	if (this->check(file))
 	{
 		while (personHead)
 		{
@@ -96,13 +95,11 @@ void FilePersonalData::write(List<Person>& users)
 
 		text.display_green(" Zapisano. ");
 		std::cout << std::endl;
-
 	}
 	else
 	{
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
-
 	file.close();
 }

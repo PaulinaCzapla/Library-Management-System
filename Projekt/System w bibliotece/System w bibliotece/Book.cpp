@@ -41,6 +41,4 @@ Book& Book::operator=(const Book& other)
 	return *this;
 }
 
-Book::~Book()
-{
-}
+Book::~Book() {}

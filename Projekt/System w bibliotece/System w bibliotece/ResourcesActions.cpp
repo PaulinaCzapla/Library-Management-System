@@ -4,7 +4,6 @@
 void ResourcesActions::add_new_book(Library& library)
 {
 	std::string name, date, title;
-	Text text;
 	char tmp;
 
 	std::cout << "\n Podaj imie i nazwisko autora: \n";
@@ -38,7 +37,7 @@ void ResourcesActions::add_new_book(Library& library)
 			is_year = false;
 		if (!is_year)
 		{
-			text.display_red(" Bledny rok. ");
+			this->display_red(" Bledny rok. ");
 			std::cout << std::endl;
 			is_year = true;
 			continue;
@@ -53,7 +52,7 @@ void ResourcesActions::add_new_book(Library& library)
 	Node<Book>* nodeb = new Node<Book>(book);
 	library.books.push_front(nodeb);
 
-	text.display_green(" Ksiazka zostala dodana. ");
+	this->display_green(" Ksiazka zostala dodana. ");
 	std::cout << std::endl;
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 	_getch();
@@ -61,9 +60,7 @@ void ResourcesActions::add_new_book(Library& library)
 
 void ResourcesActions::add_new_cd(Library& library)
 {
-
 	std::string name, date, title;
-	Text text;
 	char tmp;
 	std::cout << "\n Podaj imie i nazwisko tworcy/nazwe zespolu: \n";
 	std::cout << " >  ";
@@ -94,7 +91,7 @@ void ResourcesActions::add_new_cd(Library& library)
 			is_year = false;
 		if (!is_year)
 		{
-			text.display_red(" Bledny rok. ");
+			this->display_red(" Bledny rok. ");
 			std::cout << std::endl;
 			is_year = true;
 			continue;
@@ -110,7 +107,7 @@ void ResourcesActions::add_new_cd(Library& library)
 	Node<CD>* nodecd = new Node<CD>(cd);
 	library.cds.push_front(nodecd);
 
-	text.display_green(" Plyta zostala dodana. ");
+	this->display_green(" Plyta zostala dodana. ");
 	std::cout << std::endl;
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 	_getch();
@@ -120,7 +117,6 @@ void ResourcesActions::add_new_cd(Library& library)
 void ResourcesActions::add_new_movie(Library& library)
 {
 	std::string name, date, title;
-	Text text;
 	char tmp;
 
 	std::cout << "\n Podaj imie i nazwisko rezysera: \n";
@@ -153,7 +149,7 @@ void ResourcesActions::add_new_movie(Library& library)
 			is_year = false;
 		if (!is_year)
 		{
-			text.display_red(" Bledny rok. ");
+			this->display_red(" Bledny rok. ");
 			std::cout << std::endl;
 			is_year = true;
 			continue;
@@ -169,7 +165,7 @@ void ResourcesActions::add_new_movie(Library& library)
 	Node<Movie>* nodem = new Node<Movie>(movie);
 	library.movies.push_front(nodem);
 
-	text.display_green(" Ksiazka zostala dodana. ");
+	this->display_green(" Ksiazka zostala dodana. ");
 	std::cout << std::endl;
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 	_getch();
@@ -178,11 +174,11 @@ void ResourcesActions::add_new_movie(Library& library)
 void ResourcesActions::delete_resource(Library& library)
 {
 	std::string id;
-
-	Text text;
-	std::cout << "\n Podaj ID: ";
-	std::cin >> id;
 	char ch;
+
+	std::cout << "\n Podaj ID: \n >";
+	std::cin >> id;
+
 	if (id[0] == 'K')
 	{
 		Node<Book>* nodeB = this->find_book_byID(library.books, id);
@@ -202,7 +198,7 @@ void ResourcesActions::delete_resource(Library& library)
 				case '1':
 					library.books.delete_element(nodeB);
 					std::cout << std::endl;
-					text.display_green(" Usunieto. ");
+					this->display_green(" Usunieto. ");
 					std::cout << std::endl;
 					break;
 				case '2':
@@ -216,7 +212,7 @@ void ResourcesActions::delete_resource(Library& library)
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Brak zasobu o id ");
+			this->display_red(" Brak zasobu o id ");
 			std::cout << id << "." << std::endl;
 		}
 	}
@@ -240,7 +236,7 @@ void ResourcesActions::delete_resource(Library& library)
 				case '1':
 					library.cds.delete_element(nodeC);
 					std::cout << std::endl;
-					text.display_green(" Usunieto. ");
+					this->display_green(" Usunieto. ");
 					std::cout << std::endl;
 					break;
 				case '2':
@@ -254,7 +250,7 @@ void ResourcesActions::delete_resource(Library& library)
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Brak zasobu o id ");
+			this->display_red(" Brak zasobu o id ");
 			std::cout << id << "." << std::endl;
 		}
 	}
@@ -278,7 +274,7 @@ void ResourcesActions::delete_resource(Library& library)
 				case '1':
 					library.movies.delete_element(nodeM);
 					std::cout << std::endl;
-					text.display_green(" Usunieto. ");
+					this->display_green(" Usunieto. ");
 					std::cout << std::endl;
 					break;
 				case '2':
@@ -292,14 +288,14 @@ void ResourcesActions::delete_resource(Library& library)
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Brak zasobu o id ");
+			this->display_red(" Brak zasobu o id ");
 			std::cout << id << "." << std::endl;
 		}
 	}
 	else
 	{
 		std::cout << std::endl;
-		text.display_red(" Brak zasobu o id ");
+		this->display_red(" Brak zasobu o id ");
 		std::cout << id << "." << std::endl;
 	}
 	std::cout << std::endl;
@@ -309,13 +305,11 @@ void ResourcesActions::delete_resource(Library& library)
 
 Node <Book>* ResourcesActions::find_book_byID(List<Book>& library, std::string id)
 {
-	Text text;
-
 	Node<Book>* book = library.get_element(id);
 	if (!book)
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie znaleziono takiej ksiazki w bibliotece. ");
+		this->display_red(" Nie znaleziono takiej ksiazki w bibliotece. ");
 		std::cout << std::endl;
 	}
 	return book;
@@ -323,13 +317,11 @@ Node <Book>* ResourcesActions::find_book_byID(List<Book>& library, std::string i
 
 Node <CD>* ResourcesActions::find_cd_byID(List<CD>& library, std::string id)
 {
-	Text text;
-
 	Node<CD>* cd = library.get_element(id);
 	if (!cd)
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie znaleziono takiej plyty w bibliotece. ");
+		this->display_red(" Nie znaleziono takiej plyty w bibliotece. ");
 		std::cout << std::endl;
 	}
 	return cd;
@@ -337,13 +329,11 @@ Node <CD>* ResourcesActions::find_cd_byID(List<CD>& library, std::string id)
 
 Node <Movie>* ResourcesActions::find_movie_byID(List<Movie>& library, std::string id)
 {
-	Text text;
-
 	Node<Movie>* movie = library.get_element(id);
 	if (!movie)
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie znaleziono takiej ksiazki w bibliotece. ");
+		this->display_red(" Nie znaleziono takiej ksiazki w bibliotece. ");
 		std::cout << std::endl;
 	}
 	return movie;
@@ -352,8 +342,6 @@ Node <Movie>* ResourcesActions::find_movie_byID(List<Movie>& library, std::strin
 
 Node <Book>* ResourcesActions::find_book_byTitle(List<Book>& library, Book& book)
 {
-	Text text;
-
 	Node<Book>* nbook = library.get_element(book);
 
 	return nbook;
@@ -361,18 +349,12 @@ Node <Book>* ResourcesActions::find_book_byTitle(List<Book>& library, Book& book
 
 Node <CD>* ResourcesActions::find_cd_byTitle(List<CD>& library, CD& cd)
 {
-	Text text;
-
 	Node<CD>* ncd = library.get_element(cd);
-
 	return ncd;
 }
 
 Node <Movie>* ResourcesActions::find_movie_byTitle(List<Movie>& library, Movie& movie)
 {
-	Text text;
-
 	Node<Movie>* nmovie = library.get_element(movie);
-
 	return nmovie;
 }

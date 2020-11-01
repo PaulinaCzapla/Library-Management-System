@@ -6,7 +6,7 @@
 #include "LibraryUserActions.h"
 #include "LibraryActions.h"
 
-class Menu : public LibraryUserActions, public LibraryActions, public Text
+class Menu : public LibraryUserActions, public LibraryActions
 {
 public:
 	void main_menu(Library&, Library&, Library&, List<Person>&);

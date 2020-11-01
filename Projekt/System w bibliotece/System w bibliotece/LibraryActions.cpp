@@ -5,7 +5,6 @@ void LibraryActions::borrow(Library& library, List<Person>& users)
 	system("cls");
 	std::cout << std::endl;
 
-	Text text;
 	std::string person_id, resource_id;
 	bool is_founded = false, is_available = true;
 
@@ -64,7 +63,7 @@ void LibraryActions::borrow(Library& library, List<Person>& users)
 	if (person == nullptr)
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie znaleziono takiej osoby. ");
+		this->display_red(" Nie znaleziono takiej osoby. ");
 		std::cout << std::endl;
 	}
 	else
@@ -79,23 +78,22 @@ void LibraryActions::borrow(Library& library, List<Person>& users)
 				Node <Borrowed>* nodeB = new Node <Borrowed>(borrowed);
 				person->get_current_data().borrowed_resources.push_front(nodeB);
 				std::cout << std::endl;
-				text.display_green(" Wypozyczono ksiazke. ");
+				this->display_green(" Wypozyczono ksiazke. ");
 				std::cout << std::endl;
 			}
 			else
 			{
 				std::cout << std::endl;
-				text.display_red(" Nie ma takiego zasobu.");
+				this->display_red(" Nie ma takiego zasobu.");
 				std::cout << std::endl;
 			}
 		}
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Zasob jest juz wypozyczony. ");
+			this->display_red(" Zasob jest juz wypozyczony. ");
 			std::cout << std::endl;
 		}
-
 	std::cout << std::endl;
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 	_getch();
@@ -106,7 +104,6 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 	system("cls");
 	std::cout << std::endl;
 
-	Text text;
 	std::string person_id, resource_id;
 	char ch;
 
@@ -151,7 +148,7 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 
 				std::cout << std::endl;
 				std::cout << std::endl;
-				text.display_green(" Dokonano zwrotu. ");
+				this->display_green(" Dokonano zwrotu. ");
 				std::cout << std::endl;
 
 				if (resource_id[0] == 'K')
@@ -160,7 +157,7 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 					if (!book)
 					{
 						std::cout << std::endl;
-						text.display_red(" Nie znaleziono takiej ksiazki w bibliotece. ");
+						this->display_red(" Nie znaleziono takiej ksiazki w bibliotece. ");
 						std::cout << std::endl;
 					}
 					else
@@ -173,7 +170,7 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 					if (!cd)
 					{
 						std::cout << std::endl;
-						text.display_red(" Nie znaleziono takiej plyty u bibliotece. ");
+						this->display_red(" Nie znaleziono takiej plyty u bibliotece. ");
 						std::cout << std::endl;
 					}
 					else
@@ -186,7 +183,7 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 					if (!movie)
 					{
 						std::cout << std::endl;
-						text.display_red(" Nie znaleziono takiego filmu w bibliotece. ");
+						this->display_red(" Nie znaleziono takiego filmu w bibliotece. ");
 						std::cout << std::endl;
 					}
 					else
@@ -196,37 +193,34 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 				else
 				{
 					std::cout << std::endl;
-					text.display_red(" Nie istnieje taki zasob. ");
+					this->display_red(" Nie istnieje taki zasob. ");
 					std::cout << std::endl;
 				}
 			}
 			else
 			{
 				std::cout << std::endl;
-				text.display_red(" Ta osoba nie wypozyczyla takiego zasobu. ");
+				this->display_red(" Ta osoba nie wypozyczyla takiego zasobu. ");
 				std::cout << std::endl;
 			}
 		}
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Ta osoba nie ma wypozyczonych ksiazek. ");
+			this->display_red(" Ta osoba nie ma wypozyczonych ksiazek. ");
 			std::cout << std::endl;
 		}
 	}
 	else
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie znaleziono takiej osoby. ");
+		this->display_red(" Nie znaleziono takiej osoby. ");
 		std::cout << std::endl;
 	}
-
 	std::cout << std::endl;
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 	_getch();
 }
-
-
 
 
 bool LibraryActions::search_library_IDs(Library& library)
@@ -234,7 +228,6 @@ bool LibraryActions::search_library_IDs(Library& library)
 	system("cls");
 	std::cout << std::endl;
 
-	Text text;
 	std::string resource_id;
 	bool is_founded = false;
 
@@ -272,7 +265,7 @@ bool LibraryActions::search_library_IDs(Library& library)
 	else
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie istnieje taki zasob. ");
+		this->display_red(" Nie istnieje taki zasob. ");
 		std::cout << std::endl;
 	}
 	return is_founded;
@@ -280,52 +273,53 @@ bool LibraryActions::search_library_IDs(Library& library)
 
 bool LibraryActions::search_library_titles(Library& library)
 {
-	system("cls");
+	//system("cls");
 	std::cout << std::endl;
 	char tmp;
-	Text text;
 	std::string title;
 	bool is_founded = false;
 
-	std::cout << "\n Podaj tytul zasobu: \n";
-
+	std::cout << "\n\n Podaj tytul zasobu: \n";
 	std::cout << " >  ";
 
-
-	//while ((tmp = getchar()) != '\n');
 	getline(std::cin, title);
 
-		Date tmpdate;
+	Date tmpdate;
 	Book tmp_book("", "", tmpdate, title, 0);
 	CD tmp_cd("", "", tmpdate, title, 0);
 	Movie tmp_movie("", "", tmpdate, title, 0);
 
 	Node<Book>* book = this->find_book_byTitle(library.books, tmp_book);
-		if (book)
-		{
-			book->display();
-			is_founded = true;
-		}
+	if (book)
+	{
+		book->display();
+		is_founded = true;
+	}
 
-	
+	if (!is_founded)
+	{
 		Node<CD>* cd = this->find_cd_byTitle(library.cds, tmp_cd);
 		if (cd)
 		{
 			cd->display();
 			is_founded = true;
 		}
-	
+	}
+
+	if (!is_founded)
+	{
 		Node<Movie>* movie = this->find_movie_byTitle(library.movies, tmp_movie);
 		if (movie)
 		{
 			movie->display();
 			is_founded = true;
 		}
-	
-	if(!is_founded)
+	}
+
+	if (!is_founded)
 	{
 		std::cout << std::endl;
-		text.display_red(" Nie istnieje taki zasob. ");
+		this->display_red(" Nie istnieje taki zasob. ");
 		std::cout << std::endl;
 	}
 	return is_founded;
@@ -391,7 +385,6 @@ void LibraryActions::import_resource(Library& library, Library& library2)
 {
 	std::string id;
 
-	Text text;
 	std::cout << "\n Podaj ID: ";
 	std::cin >> id;
 	char ch;
@@ -410,19 +403,19 @@ void LibraryActions::import_resource(Library& library, Library& library2)
 				library2.books.delete_element(nodeB);
 
 				std::cout << std::endl;
-				text.display_green(" Dodano. ");
+				this->display_green(" Dodano. ");
 			}
 			else
 			{
 				std::cout << std::endl;
-				text.display_red(" Ksiazka jest aktualnie niedostepna. ");
+				this->display_red(" Ksiazka jest aktualnie niedostepna. ");
 				std::cout << std::endl;
 			}
 		}
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Brak zasobu o id ");
+			this->display_red(" Brak zasobu o id ");
 			std::cout << id << "." << std::endl;
 		}
 	}
@@ -439,19 +432,19 @@ void LibraryActions::import_resource(Library& library, Library& library2)
 				library2.cds.delete_element(nodeC);
 
 				std::cout << std::endl;
-				text.display_green(" Dodano. ");
+				this->display_green(" Dodano. ");
 			}
 			else
 			{
 				std::cout << std::endl;
-				text.display_red(" Ksiazka jest aktualnie niedostepna. ");
+				this->display_red(" Ksiazka jest aktualnie niedostepna. ");
 				std::cout << std::endl;
 			}
 		}
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Brak zasobu o id ");
+			this->display_red(" Brak zasobu o id ");
 			std::cout << id << "." << std::endl;
 		}
 	}
@@ -468,26 +461,26 @@ void LibraryActions::import_resource(Library& library, Library& library2)
 				library2.movies.delete_element(nodeM);
 
 				std::cout << std::endl;
-				text.display_green(" Dodano. ");
+				this->display_green(" Dodano. ");
 			}
 			else
 			{
 				std::cout << std::endl;
-				text.display_red(" Ksiazka jest aktualnie niedostepna. ");
+				this->display_red(" Ksiazka jest aktualnie niedostepna. ");
 				std::cout << std::endl;
 			}
 		}
 		else
 		{
 			std::cout << std::endl;
-			text.display_red(" Brak zasobu o id ");
+			this->display_red(" Brak zasobu o id ");
 			std::cout << id << "." << std::endl;
 		}
 	}
 	else
 	{
 		std::cout << std::endl;
-		text.display_red(" Brak zasobu o id ");
+		this->display_red(" Brak zasobu o id ");
 		std::cout << id << "." << std::endl;
 	}
 	std::cout << std::endl;

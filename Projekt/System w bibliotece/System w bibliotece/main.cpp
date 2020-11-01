@@ -14,12 +14,6 @@
 #include <crtdbg.h>
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
-
-
-
-
-
-
 int main()
 {
 	{
@@ -42,8 +36,8 @@ int main()
 
 		FileBorrowed borrowed(FILENAME_BORROWED);
 		borrowed.read(users);
-	
-		
+
+
 		Menu menu;
 		Sleep(1000);
 		menu.main_menu(main_library, library2, library3, users);
@@ -55,11 +49,11 @@ int main()
 		personal_data.write(users);
 
 		borrowed.write(users);
-		
+
 
 	}
 
 
-_CrtDumpMemoryLeaks();
-return 0;
+	_CrtDumpMemoryLeaks();
+	return 0;
 }

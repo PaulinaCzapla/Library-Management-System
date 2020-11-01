@@ -3,7 +3,7 @@
 #include "List.h"
 #include <conio.h>
 
-class ResourcesActions
+class ResourcesActions : public Text
 {
 public:
 	ResourcesActions() {};
