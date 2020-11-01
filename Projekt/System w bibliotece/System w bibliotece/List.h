@@ -17,6 +17,7 @@ public:
 	int size(); //zwraca iloœæ elementów listy
 	Node<T>* get_head();
 	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
+	Node <T>* get_element(T&);
 	void set_counter(int);
 	T& get_data(Node<T>*);
 
@@ -70,6 +71,22 @@ Node<T>* List<T>::get_element(std::string id)
 	while (tmp)
 	{
 		if (tmp->get_current_data() == id)
+			return tmp;
+		else
+			tmp = tmp->get_next();
+	}
+	return nullptr;
+}
+
+
+template<typename T>
+Node<T>* List<T>::get_element(T& data)
+{
+	Node<T>* tmp = this->head;
+
+	while (tmp)
+	{
+		if (tmp->get_current_data() == data)
 			return tmp;
 		else
 			tmp = tmp->get_next();

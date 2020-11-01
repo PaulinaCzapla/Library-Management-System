@@ -229,7 +229,7 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 
 
 
-bool LibraryActions::search_library(Library& library)
+bool LibraryActions::search_library_IDs(Library& library)
 {
 	system("cls");
 	std::cout << std::endl;
@@ -277,6 +277,60 @@ bool LibraryActions::search_library(Library& library)
 	}
 	return is_founded;
 }
+
+bool LibraryActions::search_library_titles(Library& library)
+{
+	system("cls");
+	std::cout << std::endl;
+	char tmp;
+	Text text;
+	std::string title;
+	bool is_founded = false;
+
+	std::cout << "\n Podaj tytul zasobu: \n";
+
+	std::cout << " >  ";
+
+
+	//while ((tmp = getchar()) != '\n');
+	getline(std::cin, title);
+
+		Date tmpdate;
+	Book tmp_book("", "", tmpdate, title, 0);
+	CD tmp_cd("", "", tmpdate, title, 0);
+	Movie tmp_movie("", "", tmpdate, title, 0);
+
+	Node<Book>* book = this->find_book_byTitle(library.books, tmp_book);
+		if (book)
+		{
+			book->display();
+			is_founded = true;
+		}
+
+	
+		Node<CD>* cd = this->find_cd_byTitle(library.cds, tmp_cd);
+		if (cd)
+		{
+			cd->display();
+			is_founded = true;
+		}
+	
+		Node<Movie>* movie = this->find_movie_byTitle(library.movies, tmp_movie);
+		if (movie)
+		{
+			movie->display();
+			is_founded = true;
+		}
+	
+	if(!is_founded)
+	{
+		std::cout << std::endl;
+		text.display_red(" Nie istnieje taki zasob. ");
+		std::cout << std::endl;
+	}
+	return is_founded;
+}
+
 
 void LibraryActions::show_imported_resources(Library& library, std::string& lib)
 {
