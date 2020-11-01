@@ -104,3 +104,10 @@ bool Borrowed::operator==(const std::string& id)
 	else
 		return false;
 }
+
+
+std::ostream& operator<< (std::ostream& output, Borrowed& data)
+{
+	printf("\n                 |  ID %-19s   |  wypozyczono: %-16s  |  termin zwrotu: %-10s  \n", data.resource_ID.c_str(), data.borrow_date.date_to_string().c_str(), data.deadline.date_to_string().c_str());
+	return output;
+}

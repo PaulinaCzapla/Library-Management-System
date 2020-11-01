@@ -25,13 +25,12 @@ public:
 	void set_date_from_string(std::string);
 	std::string date_to_string();
 	std::string year_to_string();
-	bool check();
+	bool validate();
 	bool check_string(std::string);
-	//std::ostream& operator<< (std::ostream&);
 	int operator- (const Date&) const;
 	Date operator+ (const int&) const;
 	Date& operator=(const Date&);
-	//~Date();
+	~Date() {};
 };
 
 #endif

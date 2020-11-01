@@ -62,3 +62,10 @@ bool Person::operator==(const std::string& id)
 		return false;
 }
 
+std::ostream& operator<< (std::ostream& output, Person& data)
+{
+	printf("\n ID %-10s  |  %-23s  |  %-10s  |  tel. %-9s  |  %-s", data.ID.c_str(), data.name.c_str(), data.birth_date.date_to_string().c_str(), data.phone_number.c_str(), data.address.c_str());
+	data.borrowed_resources.display_list();
+	std::cout << std::endl;
+	return output;
+}

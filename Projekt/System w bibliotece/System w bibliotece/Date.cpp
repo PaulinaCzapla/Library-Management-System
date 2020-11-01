@@ -69,7 +69,7 @@ std::string Date::year_to_string()
 	return std::to_string(this->year);
 }
 
-bool Date::check()
+bool Date::validate()
 {
 	int daysInMonth[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 	if (this->day <= daysInMonth[this->month] && 0 < this->month <= 12)
@@ -86,11 +86,6 @@ bool Date::check_string(std::string date)
 				return true;
 	return false;
 }
-//std::ostream& Date::operator<< (std::ostream& output)
-//{
-//	std::cout << this->day << "-" << this->month << "-" << this->year;
-//	return output;
-//}
 
 int Date::operator- (const Date& other) const //zwraca ró¿nicê w dniach
 {
@@ -103,10 +98,9 @@ int Date::operator- (const Date& other) const //zwraca ró¿nicê w dniach
 	months = this->month - other.month;
 	days = this->day - other.day;
 
-	if (years < 0 || years >0)//12.10.2019  -  18.10.2020   
+	if (years < 0 || years >0)
 	{
 		(years > 0 ? years_sign = 1 : years_sign = -1);
-
 
 		for (int i = 0; i < years; i++)
 			sum += 365;
@@ -120,12 +114,12 @@ int Date::operator- (const Date& other) const //zwraca ró¿nicê w dniach
 		return sum - monthprev + monthnext;
 
 	}
-	else if (years == 0)  //12.10.2020  -  18.10.2020   
+	else if (years == 0)  
 	{
-		if (months == 0) //12.10.2020  -  18.10.2020   
+		if (months == 0)  
 			return days;
 
-		if (months > 0 || months < 0) //12.11.2020 - 18.10.2020 
+		if (months > 0 || months < 0) 
 		{
 			(months > 0 ? months_sign = 1 : months_sign = -1);
 
@@ -186,7 +180,20 @@ Date& Date::operator=(const Date& other)
 	return *this;
 }
 
-	//Date::~Date()
-	//{
+	
 
-	//}
+std::ostream& operator<< (std::ostream& output, Date const& date)
+{
+	if (date.day == 0 || date.month == 0)
+		std::cout << " " << date.year;
+	else if (date.day < 10 && date.month < 10)
+		std::cout << " 0" << date.day << ".0" << date.month << "." << date.year;
+	else if (date.day < 10)
+		std::cout << " 0" << date.day << "." << date.month << "." << date.year;
+	else if (date.month < 10)
+		std::cout << " " << date.day << ".0" << date.month << "." << date.year;
+	else
+		std::cout << " " << date.day << "." << date.month << "." << date.year;
+
+	return output;
+}
