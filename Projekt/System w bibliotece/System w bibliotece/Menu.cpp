@@ -118,6 +118,7 @@ void Menu::display_library_menu(Library& library)
 		std::cout << "                                            [2] Wyswietl wszystkie plyty \n";
 		std::cout << "                                            [3] Wyswietl wszystkie filmy \n";
 		std::cout << "                                            [4] Wyswietl po ID \n";
+		std::cout << "                                            [5] Wyswietl po tytule \n";
 		std::cout << "                                            [0] Wyjdz \n";
 		std::cout << std::endl;
 		char ch, tmp;
@@ -157,7 +158,12 @@ void Menu::display_library_menu(Library& library)
 				_getch();
 				break;
 			case '4':
-				this->search_library(library);
+				this->search_library_IDs(library);
+				std::cout << std::endl;
+				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
+				_getch();
+			case '5':
+				this->search_library_titles(library);
 				std::cout << std::endl;
 				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 				_getch();
@@ -373,7 +379,7 @@ void Menu::libraries_menu(Library& library, Library& library2, Library& library3
 					this->display_library_menu(library2);
 				else if (option == 1)
 				{
-					this->search_library(library2);
+					this->search_library_IDs(library2);
 					std::cout << std::endl;
 					std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 					_getch();
@@ -389,7 +395,7 @@ void Menu::libraries_menu(Library& library, Library& library2, Library& library3
 
 				else if (option == 1)
 				{
-					this->search_library(library3);
+					this->search_library_IDs(library3);
 					std::cout << std::endl;
 					std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 					_getch();

@@ -41,25 +41,13 @@ bool Resource::operator==(const std::string& id)
 		return false;
 }
 
-//
-//std::ostream& Resource::operator<< (std::ostream& output)
-//{
-//	Text text;
-//	std::cout << " " << this->ID << " " << this->title << " " << this->authors_name << " rok wydania:" << this->release_date << " ";
-//
-//	if (this->is_available)
-//	{
-//		text.display_green(" Dostepny. ");
-//		std::cout << std::endl << std::endl;
-//	}
-//		
-//	else
-//	{
-//		text.display_red(" Niedostepny. ");
-//		std::cout << std::endl << std::endl;
-//	}
-//	return output;
-//}
+bool Resource::operator==(const Resource& other)
+{
+	if (other.title.compare(this->title) == 0)
+		return true;
+	else
+		return false;
+}
 
 std::string Resource::get_ID()
 {
@@ -86,6 +74,25 @@ bool Resource::get_availability()
 {
 	return this->is_available;
 }
+
+std::ostream& operator<< (std::ostream& output, Resource& data)
+{
+	Text text;
+	std::cout << " " << data.ID << "    " << data.authors_name << " | " << data.title << " | rok wydania:" << data.release_date.year_to_string() << " ";
+
+	if (data.is_available)
+	{
+		text.display_green(" Dostepny. ");
+		std::cout << std::endl << std::endl;
+	}
+	else
+	{
+		text.display_red(" Niedostepny. ");
+		std::cout << std::endl << std::endl;
+	}
+	return output;
+}
+
 
 Resource::~Resource() {}
 

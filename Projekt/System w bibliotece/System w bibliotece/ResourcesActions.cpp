@@ -348,3 +348,31 @@ Node <Movie>* ResourcesActions::find_movie_byID(List<Movie>& library, std::strin
 	}
 	return movie;
 }
+
+
+Node <Book>* ResourcesActions::find_book_byTitle(List<Book>& library, Book& book)
+{
+	Text text;
+
+	Node<Book>* nbook = library.get_element(book);
+
+	return nbook;
+}
+
+Node <CD>* ResourcesActions::find_cd_byTitle(List<CD>& library, CD& cd)
+{
+	Text text;
+
+	Node<CD>* ncd = library.get_element(cd);
+
+	return ncd;
+}
+
+Node <Movie>* ResourcesActions::find_movie_byTitle(List<Movie>& library, Movie& movie)
+{
+	Text text;
+
+	Node<Movie>* nmovie = library.get_element(movie);
+
+	return nmovie;
+}
