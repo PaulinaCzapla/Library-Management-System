@@ -4,17 +4,13 @@
 #include <fstream>
 #include <string>
 #include "Text.h"
-#include "Person.h"//date library list node borrowed
-
-
+#include "Person.h"
 
 #define FILENAME_PERSONAL_DATA "personal_data.txt"
 #define FILENAME_MAIN_LIBRARY "library.txt"
 #define FILENAME_LIBRARY2 "library2.txt"
 #define FILENAME_LIBRARY3 "library3.txt"
 #define FILENAME_BORROWED "borrowed_resources.txt"
-
-
 
 template<typename T>
 class File
@@ -28,6 +24,9 @@ public:
 	virtual void read(T&) =0;
 	bool check(std::fstream&);
 };
+
+
+
 
 template<typename T>
 File<T>::File<T>(std::string filename_) : filename(filename_) {}

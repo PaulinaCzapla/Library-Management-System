@@ -1,10 +1,6 @@
 #include "FilePersonalData.h"
 
-
-
-
 FilePersonalData::FilePersonalData(std::string filename_) : File<List<Person>>(filename_) {}
-
 
 void FilePersonalData::read(List<Person>& users)
 {
@@ -35,7 +31,6 @@ void FilePersonalData::read(List<Person>& users)
 							date = tmp;
 							break;
 						}
-
 					if (digit)
 						break;
 
@@ -66,7 +61,6 @@ void FilePersonalData::read(List<Person>& users)
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
-
 	file.close();
 }
 

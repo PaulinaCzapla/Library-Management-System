@@ -19,7 +19,6 @@ void LibraryActions::borrow(Library& library, List<Person>& users)
 		std::cout << "\n Podaj ID zasobu: ";
 		std::cin >> resource_id;
 
-
 		if (resource_id[0] == 'K')
 		{
 			Node<Book>* book = library.books.get_element(resource_id);
@@ -145,7 +144,6 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 
 				nodeP->get_current_data().borrowed_resources.delete_element(resource);
 
-
 				std::cout << std::endl;
 				std::cout << std::endl;
 				this->display_green(" Dokonano zwrotu. ");
@@ -188,7 +186,6 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 					}
 					else
 						movie->get_current_data().change_availability(true);
-
 				}
 				else
 				{
@@ -234,7 +231,6 @@ bool LibraryActions::search_library_IDs(Library& library)
 	std::cout << "\n Podaj ID zasobu: ";
 	std::cin >> resource_id;
 
-
 	if (resource_id[0] == 'K')
 	{
 		Node<Book>* book = this->find_book_byID(library.books, resource_id);
@@ -273,7 +269,6 @@ bool LibraryActions::search_library_IDs(Library& library)
 
 bool LibraryActions::search_library_titles(Library& library)
 {
-	//system("cls");
 	std::cout << std::endl;
 	char tmp;
 	std::string title;
@@ -315,7 +310,6 @@ bool LibraryActions::search_library_titles(Library& library)
 			is_founded = true;
 		}
 	}
-
 	if (!is_founded)
 	{
 		std::cout << std::endl;

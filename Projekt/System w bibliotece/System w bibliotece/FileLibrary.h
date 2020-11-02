@@ -11,5 +11,6 @@ public:
     FileLibrary(std::string);
     void write(Library&);
     void read(Library&);
+    ~FileLibrary() {};
 };
 #endif

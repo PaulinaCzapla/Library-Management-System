@@ -2,7 +2,6 @@
 
 Node <Person>* LibraryUserActions::find_user_byID(List<Person>& users)
 {
-	//	system("cls");
 	std::cout << std::endl;
 
 	std::string person_id;
@@ -23,7 +22,6 @@ Node <Person>* LibraryUserActions::find_user_byID(List<Person>& users)
 		this->text.display_red(" Nie ma takiej osoby.");
 		std::cout << std::endl;
 	}
-
 	return nodeP;
 }
 
@@ -96,7 +94,6 @@ void LibraryUserActions::add_new_user(List<Person>& users)
 
 		while ((tmp = getchar()) != '\n');
 		getline(std::cin, address);
-
 
 		Person person(person_id, name + " " + surname, date_cl, address, phone);
 		Node<Person>* node = new Node<Person>(person);

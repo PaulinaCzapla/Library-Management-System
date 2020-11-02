@@ -41,6 +41,4 @@ Movie& Movie::operator=(const Movie& other)
 	return *this;
 }
 
-Movie::~Movie()
-{ 
-}
+Movie::~Movie() {}

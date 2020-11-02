@@ -12,6 +12,7 @@ public:
 	FilePersonalData(std::string);
 	void write(List<Person>&);
 	void read(List<Person>&);
+	~FilePersonalData() {};
 };
 
 #endif

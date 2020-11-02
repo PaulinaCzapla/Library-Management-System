@@ -111,7 +111,6 @@ void ResourcesActions::add_new_cd(Library& library)
 	std::cout << std::endl;
 	std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 	_getch();
-
 }
 
 void ResourcesActions::add_new_movie(Library& library)
@@ -343,7 +342,6 @@ Node <Movie>* ResourcesActions::find_movie_byID(List<Movie>& library, std::strin
 Node <Book>* ResourcesActions::find_book_byTitle(List<Book>& library, Book& book)
 {
 	Node<Book>* nbook = library.get_element(book);
-
 	return nbook;
 }
 

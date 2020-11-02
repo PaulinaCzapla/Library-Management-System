@@ -11,7 +11,6 @@ CD::CD(int num_, std::string name_, Date release_date_, std::string title_, bool
 
 CD::CD() : Resource() {}
 
-
 void CD::create_id(int number)
 {
 	std::string c = "C";
@@ -42,6 +41,4 @@ CD& CD::operator=(const CD& other)
 	return *this;
 }
 
-CD::~CD()
-{
-}
+CD::~CD() {}

@@ -1,8 +1,6 @@
 #include "FileLibrary.h"
 
-
 FileLibrary::FileLibrary(std::string filename_) : File(filename_) {}
-
 
 void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 {
@@ -76,7 +74,6 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 							library.books.set_counter(counter_books);
 						}
 					}
-
 				}
 				else if (ID[0] == 'C')
 				{
@@ -93,7 +90,6 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 							library.cds.set_counter(counter_cds);
 						}
 					}
-
 				}
 				else if (ID[0] == 'F')
 				{
@@ -129,7 +125,6 @@ void FileLibrary::read(Library& library)// ID imie nazwisko tytul data dostep
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
-
 	file.close();
 }
 
@@ -172,7 +167,6 @@ void FileLibrary::write(Library& library)
 			if (tmpC || tmpM)
 				file << std::endl;
 		}
-
 		while (tmpM)
 		{
 			file << tmpM->get_current_data().get_ID() << " ";
@@ -185,10 +179,8 @@ void FileLibrary::write(Library& library)
 			if (tmpM)
 				file << std::endl;
 		}
-
 		text.display_green(" Zapisano. ");
 		std::cout << std::endl;
-
 	}
 	else
 	{

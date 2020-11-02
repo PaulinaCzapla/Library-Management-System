@@ -26,7 +26,6 @@ public:
 	Node* get_current();
 	Node& operator=(const Node&);
 	bool operator==(const std::string&);
-
 	~Node();
 };
 

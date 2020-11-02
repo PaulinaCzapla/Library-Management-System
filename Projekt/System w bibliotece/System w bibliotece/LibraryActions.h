@@ -13,5 +13,6 @@ public:
 	bool search_library_titles(Library&);
 	void show_imported_resources(Library&, std::string&);
 	void import_resource(Library&, Library&);
+	~LibraryActions() {};
 };
 

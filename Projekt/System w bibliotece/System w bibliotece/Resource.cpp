@@ -1,8 +1,6 @@
 #include "Resource.h"
 
-
-
-Resource::Resource(std::string id_, std::string name_ , Date release_date_, std::string title_, bool is_available_)
+Resource::Resource(std::string id_, std::string name_, Date release_date_, std::string title_, bool is_available_)
 {
 	this->ID = id_;
 	this->authors_name = name_;
@@ -28,6 +26,7 @@ Resource::Resource()
 	this->is_available = false;
 	this->release_date;
 }
+
 void Resource::change_availability(bool is_available_)
 {
 	this->is_available = is_available_;
@@ -43,7 +42,15 @@ bool Resource::operator==(const std::string& id)
 
 bool Resource::operator==(const Resource& other)
 {
-	if (other.title.compare(this->title) == 0)
+	std::string tmp_t = this->title, tmp_o = other.title;
+
+	for (char& c : tmp_t)
+		c = tolower(c);
+
+	for (char& c : tmp_o)
+		c = tolower(c);
+
+	if (tmp_t.compare(tmp_o) == 0)
 		return true;
 	else
 		return false;

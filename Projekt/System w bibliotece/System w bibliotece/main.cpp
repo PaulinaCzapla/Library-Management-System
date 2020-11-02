@@ -49,11 +49,7 @@ int main()
 		personal_data.write(users);
 
 		borrowed.write(users);
-
-
 	}
-
-
 	_CrtDumpMemoryLeaks();
 	return 0;
 }

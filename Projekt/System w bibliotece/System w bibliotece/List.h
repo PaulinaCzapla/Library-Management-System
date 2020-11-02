@@ -20,9 +20,11 @@ public:
 	Node <T>* get_element(T&);
 	void set_counter(int);
 	T& get_data(Node<T>*);
-
 	~List();
 };
+
+
+
 
 template<typename T>
 List<T>::List()

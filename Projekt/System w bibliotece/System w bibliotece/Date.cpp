@@ -61,7 +61,6 @@ std::string Date::date_to_string()
 		tmp =tmp +'-' + std::to_string(this->month);
 
 	return tmp + '-' + std::to_string(this->year);
-
 }
 
 std::string Date::year_to_string()
@@ -112,7 +111,6 @@ int Date::operator- (const Date& other) const //zwraca ró¿nicê w dniach
 			monthnext += daysInMonth[other.month - 1 - i];
 
 		return sum - monthprev + monthnext;
-
 	}
 	else if (years == 0)  
 	{

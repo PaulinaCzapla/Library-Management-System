@@ -28,7 +28,6 @@ void Menu::main_menu(Library& main_library, Library& library2, Library& library3
 				break;
 			}
 
-
 			switch (ch)
 			{
 			case '1':
@@ -103,7 +102,6 @@ void Menu::resources_menu(Library& library)
 		if (ch == '0')
 			break;
 	}
-
 }
 
 
@@ -125,7 +123,6 @@ void Menu::display_library_menu(Library& library)
 
 		for (;;)
 		{
-
 			std::cout << " >  ";
 			std::cin >> ch;
 			while ((tmp = getchar()) != '\n');
@@ -142,7 +139,6 @@ void Menu::display_library_menu(Library& library)
 				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 				_getch();
 				break;
-
 			case '2':
 				library.cds.display_list();
 				std::cout << std::endl;
@@ -345,7 +341,6 @@ void Menu::users_menu(List<Person>& users)
 		}
 		if (ch == '0')
 			break;
-
 	}
 }
 

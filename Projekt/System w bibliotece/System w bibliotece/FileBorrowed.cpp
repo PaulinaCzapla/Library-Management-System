@@ -1,10 +1,6 @@
 #include "FileBorrowed.h"
 
-
-
-
 FileBorrowed::FileBorrowed(std::string filename_) : File<List<Person>>(filename_) {}
-
 
 void FileBorrowed::read(List<Person>& users)
 { 
@@ -42,7 +38,6 @@ void FileBorrowed::read(List<Person>& users)
 					std::cout << this->filename << std::endl;
 					break;
 				}
-
 			}
 		}
 	}
@@ -51,7 +46,6 @@ void FileBorrowed::read(List<Person>& users)
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
-
 	file.close();
 }
 
@@ -63,7 +57,6 @@ void FileBorrowed::write(List<Person>& users)
 	file.open(this->filename, std::ios::out);
 
 	auto personHead = users.get_head();
-
 
 	if (this->check(file)) 
 	{
@@ -80,19 +73,15 @@ void FileBorrowed::write(List<Person>& users)
 				file << std::endl;
 				borrowedHead = borrowedHead->get_next();
 			}
-
 			personHead = personHead->get_next();
 		}
-
 		text.display_green(" Zapisano. ");
 		std::cout << std::endl;
-
 	}
 	else
 	{
 		text.display_red(" Nie udalo sie otworzyc pliku ");
 		std::cout << this->filename << std::endl;
 	}
-
 	file.close();
 }

@@ -46,7 +46,6 @@ void Borrowed::display(Library* libraries)
 				break;
 			}
 		}
-
 		break;
 	case 'F':
 		for (int i = 0; i < LIBRARIES_NUM; i++)
@@ -59,7 +58,6 @@ void Borrowed::display(Library* libraries)
 				break;
 			}
 		}
-
 		break;
 	default:
 		text.display_red(" Brak zasobu. ");

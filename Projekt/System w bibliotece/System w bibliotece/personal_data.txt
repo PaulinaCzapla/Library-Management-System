@@ -1,14 +1,14 @@
-95121209034 Marian Antoni Pawlak 12-12-1995 158017096 Bytom, Sienkiewicza 4
-55082998585 Anastazja Wlodarczyk 29-08-1955 784145081 Chorzow, Kujawska 5
-58050540003 Iga Skowronska 05-05-1958 311516970 Gliwice, Dluga 34
-28110162777 Oliwier Sikora 01-11-1928 174298585 Gliwice, Niecala 2b
-41092388362 Edyta Skiba 23-09-1941 137125528 Gliwice, Niecala 72
-31030502615 Vladyslav Tomczyk 05-03-1931 130905690 Gliwice, Akacjowa 12/6
-79042168452 Kazimierz Adamczyk 21-04-1979 590543870 Gliwice, Wroblewskiego 8
-88020410896 Bolesaw Jozwiak 04-02-1988 515186227 Gliwice, Akacjowa 13/2
-87012015503 Danuta Cieslak 20-01-1987 795817410 Gliwice, Kormoranow 35
-92091505690 Karol Czerwinski 15-09-1992 736632842 Zabrze, Lipowa 18
-76040826816 Henryk Jakubowski 08-04-1976 233057850 Zabrze, Kasztanowa 87
-88010278460 Paulina Janicka 02-01-1988 419061649 Zabrze, Klasztorna 24
-70041851169 Karolina Orzechowska 18-04-1970 473130609 Siemianowice Slaskie, Skromna 54
 99232349123 Janina Kowalska 23-03-1999 123123123 Gliwice, Kwiatowa 10
+70041851169 Karolina Orzechowska 18-04-1970 473130609 Siemianowice Slaskie, Skromna 54
+88010278460 Paulina Janicka 02-01-1988 419061649 Zabrze, Klasztorna 24
+76040826816 Henryk Jakubowski 08-04-1976 233057850 Zabrze, Kasztanowa 87
+92091505690 Karol Czerwinski 15-09-1992 736632842 Zabrze, Lipowa 18
+87012015503 Danuta Cieslak 20-01-1987 795817410 Gliwice, Kormoranow 35
+88020410896 Bolesaw Jozwiak 04-02-1988 515186227 Gliwice, Akacjowa 13/2
+79042168452 Kazimierz Adamczyk 21-04-1979 590543870 Gliwice, Wroblewskiego 8
+31030502615 Vladyslav Tomczyk 05-03-1931 130905690 Gliwice, Akacjowa 12/6
+41092388362 Edyta Skiba 23-09-1941 137125528 Gliwice, Niecala 72
+28110162777 Oliwier Sikora 01-11-1928 174298585 Gliwice, Niecala 2b
+58050540003 Iga Skowronska 05-05-1958 311516970 Gliwice, Dluga 34
+55082998585 Anastazja Wlodarczyk 29-08-1955 784145081 Chorzow, Kujawska 5
+95121209034 Marian Antoni Pawlak 12-12-1995 158017096 Bytom, Sienkiewicza 4

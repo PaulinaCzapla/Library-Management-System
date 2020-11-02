@@ -13,7 +13,7 @@ public:
 	List <Book>  books;
 	List <CD> cds;
 	List <Movie> movies;
-
+	~Library() {};
 };
 
 #endif

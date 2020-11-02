@@ -8,7 +8,6 @@
 #include "Date.h"
 #include "Text.h"
 
-
 class Resource 
 {
 	friend std::ostream& operator<< (std::ostream&, Resource&);
@@ -34,7 +33,6 @@ public:
 	Date get_date();
 	bool get_availability();
 	virtual ~Resource();
-
 };
 
 #endif

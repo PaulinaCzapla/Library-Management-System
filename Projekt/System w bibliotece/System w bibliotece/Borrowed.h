@@ -3,10 +3,9 @@
 #define BORROWED_H
 
 #include "Date.h"
-#include "Library.h" // list node
-//#include "List.cpp"
-//#include "Node.cpp"
-#define PRICE 7
+#include "Library.h" 
+
+#define PRICE 2
 #define BORROW_TIME 21
 
 class Borrowed
