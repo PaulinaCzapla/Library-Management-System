@@ -85,17 +85,18 @@ bool Resource::get_availability()
 std::ostream& operator<< (std::ostream& output, Resource& data)
 {
 	Text text;
-	std::cout << " " << data.ID << "    " << data.authors_name << " | " << data.title << " | rok wydania:" << data.release_date.year_to_string() << " ";
-
+	//std::cout << " " << data.ID << "    " << data.authors_name << " | " << data.title << " | rok wydania:" << data.release_date.year_to_string() << " ";
+	printf("\n ID %-10s  |  %-17s  |  %-29s  | rok wydania: %-9s ", data.ID.c_str(), data.authors_name.c_str(), data.title.c_str(), data.release_date.year_to_string().c_str());
+	
 	if (data.is_available)
 	{
 		text.display_green(" Dostepny. ");
-		std::cout << std::endl << std::endl;
+		std::cout << std::endl;
 	}
 	else
 	{
 		text.display_red(" Niedostepny. ");
-		std::cout << std::endl << std::endl;
+		std::cout << std::endl;
 	}
 	return output;
 }

@@ -19,6 +19,7 @@ public:
 	Node <T>* get_element(std::string); //szukanie elementu po ID, zwraca znaleziony element albo nullptr
 	Node <T>* get_element(T&);
 	void set_counter(int);
+	void increase_counter();
 	T& get_data(Node<T>*);
 	~List();
 };
@@ -119,6 +120,12 @@ template<typename T>
 void List<T>::set_counter(int counter_)
 {
 	this->counter = counter_;
+}
+
+template<typename T>
+void List<T>::increase_counter()
+{
+	this->counter++;
 }
 
 template<typename T>

@@ -61,7 +61,7 @@ void Menu::resources_menu(Library& library)
 	{
 		system("cls");
 		std::cout << std::endl;
-		std::cout << "\n                                           Zasoby biblioteki\n\n";
+		std::cout << "\n                                             Zasoby biblioteki\n\n";
 		std::cout << "                                            [1] Wyswietl zasoby\n";
 		std::cout << "                                            [2] Dodaj nowe zasoby \n";
 		std::cout << "                                            [3] Usun zasob\n";
@@ -111,7 +111,7 @@ void Menu::display_library_menu(Library& library)
 	{
 		system("cls");
 		std::cout << std::endl;
-		std::cout << "\n                                            Wyswietl zasoby\n\n";
+		std::cout << "\n                                                   Wyswietl zasoby\n\n";
 		std::cout << "                                            [1] Wyswietl wszystkie ksiazki \n";
 		std::cout << "                                            [2] Wyswietl wszystkie plyty \n";
 		std::cout << "                                            [3] Wyswietl wszystkie filmy \n";
@@ -158,6 +158,7 @@ void Menu::display_library_menu(Library& library)
 				std::cout << std::endl;
 				std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
 				_getch();
+				break;
 			case '5':
 				this->search_library_titles(library);
 				std::cout << std::endl;
@@ -183,7 +184,7 @@ void Menu::add_resource_menu(Library& library)
 	{
 		system("cls");
 		std::cout << std::endl;
-		std::cout << "\n                                           Dodawanie zasobow\n\n";
+		std::cout << "\n                                             Dodawanie zasobow\n\n";
 		std::cout << "                                            [1] Dodaj ksiazke \n";
 		std::cout << "                                            [2] Dodaj plyte \n";
 		std::cout << "                                            [3] Dodaj film \n";
@@ -231,12 +232,11 @@ void Menu::external_libraries_menu(Library& library, Library& library2, Library&
 	{
 		system("cls");
 		std::cout << std::endl;
-		std::cout << "\n                                         Zasoby bibliotek zewnetrznych\n\n";
-		std::cout << "                                            [1] Przeszukaj zasoby \n";
-		std::cout << "                                            [2] Wyswietl zasoby bibliotek\n";
-		std::cout << "                                            [3] Wyswietl sprowadzone zasoby \n";
-		std::cout << "                                            [4] Sprowadz z biblioteki zewnetrznej\n";
-		std::cout << "                                            [5] Zwroc/wypozycz bibliotece zewnetrznej\n";
+		std::cout << "\n                                             Zasoby bibliotek zewnetrznych\n\n";
+		std::cout << "                                            [1] Wyswietl zasoby bibliotek\n";
+		std::cout << "                                            [2] Wyswietl sprowadzone zasoby \n";
+		std::cout << "                                            [3] Sprowadz z biblioteki zewnetrznej\n";
+		std::cout << "                                            [4] Zwroc/wypozycz bibliotece zewnetrznej\n";
 		std::cout << "                                            [0] Wyjdz \n";
 		std::cout << std::endl;
 
@@ -258,16 +258,13 @@ void Menu::external_libraries_menu(Library& library, Library& library2, Library&
 				this->libraries_menu(library, library2, library3, 1);
 				break;
 			case '2':
-				this->libraries_menu(library, library2, library3, 2);
+				this->show_imported_resources(library, gl1);
 				break;
 			case '3':
-				this->show_imported_resources(library, gl1);
+				this->libraries_menu(library, library2, library3, 2);
 				break;
 			case '4':
 				this->libraries_menu(library, library2, library3, 3);
-				break;
-			case '5':
-				this->libraries_menu(library, library2, library3, 4);
 				break;
 
 			default:
@@ -289,7 +286,7 @@ void Menu::users_menu(List<Person>& users)
 	{
 		system("cls");
 		std::cout << std::endl;
-		std::cout << "\n                                              Uzytkownicy\n\n";
+		std::cout << "\n                                                     Uzytkownicy\n\n";
 		std::cout << "                                            [1] Wyswietl wszystkich uzytkownikow \n";
 		std::cout << "                                            [2] Znajdz uzytkownika po ID \n";
 		std::cout << "                                            [3] Dodaj nowego uzytkownika \n";
@@ -370,34 +367,19 @@ void Menu::libraries_menu(Library& library, Library& library2, Library& library3
 			switch (ch)
 			{
 			case '1':
-				if (option == 2)
+				if (option == 1)
 					this->display_library_menu(library2);
-				else if (option == 1)
-				{
-					this->search_library_IDs(library2);
-					std::cout << std::endl;
-					std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
-					_getch();
-				}
-				else if (option == 3)
+				else if (option == 2)
 					this->import_resource(library, library2);
-				else if (option == 4)
+				else if (option == 3)
 					this->import_resource(library2, library);
 				break;
 			case '2':
-				if (option == 2)
+				if (option == 1)
 					this->display_library_menu(library3);
-
-				else if (option == 1)
-				{
-					this->search_library_IDs(library3);
-					std::cout << std::endl;
-					std::cout << "\n\n Wcisnij dowolny klawisz aby kontynuowac...";
-					_getch();
-				}
-				else if (option == 3)
+				else if (option == 2)
 					this->import_resource(library, library3);
-				else if (option == 4)
+				else if (option == 3)
 					this->import_resource(library3, library);
 				break;
 

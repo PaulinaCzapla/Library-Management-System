@@ -51,6 +51,7 @@ void ResourcesActions::add_new_book(Library& library)
 	Book book(library.books.size() +1 , name, date_cl, title, true);
 	Node<Book>* nodeb = new Node<Book>(book);
 	library.books.push_front(nodeb);
+	library.books.increase_counter();
 
 	this->display_green(" Ksiazka zostala dodana. ");
 	std::cout << std::endl;
@@ -106,6 +107,7 @@ void ResourcesActions::add_new_cd(Library& library)
 	CD cd(library.cds.size() + 1, name, date_cl, title, true);
 	Node<CD>* nodecd = new Node<CD>(cd);
 	library.cds.push_front(nodecd);
+	library.cds.increase_counter();
 
 	this->display_green(" Plyta zostala dodana. ");
 	std::cout << std::endl;
@@ -163,6 +165,7 @@ void ResourcesActions::add_new_movie(Library& library)
 	Movie movie(library.movies.size() + 1, name, date_cl, title, true);
 	Node<Movie>* nodem = new Node<Movie>(movie);
 	library.movies.push_front(nodem);
+	library.movies.increase_counter();
 
 	this->display_green(" Ksiazka zostala dodana. ");
 	std::cout << std::endl;

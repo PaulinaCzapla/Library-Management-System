@@ -222,7 +222,7 @@ void LibraryActions::make_a_return(Library& library, List<Person>& users)
 
 bool LibraryActions::search_library_IDs(Library& library)
 {
-	system("cls");
+	
 	std::cout << std::endl;
 
 	std::string resource_id;
