@@ -1,1 +1,2 @@
-# 82151baf-gr42-repo
+# System w bibliotece
+Projekt PK3 - programowanie obiektowe w C++

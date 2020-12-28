@@ -1,4 +1,0 @@
-﻿  PK3_lab1.cpp
-C:\Users\pauli\Documents\GitHub\PK3_lab1\PK3_lab1\PK3_lab1.cpp(38,31): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-C:\Users\pauli\Documents\GitHub\PK3_lab1\PK3_lab1\PK3_lab1.cpp(28,10): warning C4101: "tmp": lokalna zmienna, do której nie istnieje odwołanie
-  PK3_lab1.vcxproj -> C:\Users\pauli\Documents\GitHub\PK3_lab1\Debug\PK3_lab1.exe

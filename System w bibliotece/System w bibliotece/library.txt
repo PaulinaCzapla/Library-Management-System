@@ -1,0 +1,25 @@
+K000353GL2 Stephen King 2005 0 To
+K000018GL1 Sofokles 2002 0 Antygona
+K000017GL1 Albert Camus 1998 0 Dzuma
+K000016GL1 Dmitry Glukhowsky 2013 1 Metro 2033
+K000015GL1 Andy Weir 2013 1 Marsjanin
+K000014GL1 George Orwell 2005 1 Rok 1984
+K000013GL1 Simon Beckett 2006 1 Chemia smierci
+K000001GL2 Stephen King 2017 1 Bastion
+K000012GL1 Hugh Howey 2014 1 Pyl. Tom 3
+K000011GL1 Hugh Howey 2014 1 Zmiana. Tom 2
+K000010GL1 Hugh Howey 2017 1 Silos. Tom 1
+K000008GL1 J.K. Rowling 2015 1 Harry Potter i ksiaze polkrwi
+K000007GL1 J.K. Rowling 2015 1 Harry Potter i kamien filozoficzny
+K000005GL1 J.K. Rowling 2011 0 Harry Potter i insygnia smierci
+K000004GL1 J.K. Rowling 2015 1 Harry Potter i wiezien azkabanu
+K000003GL1 J.K. Rowling 2011 0 Harry Potter i kamien filozoficzny
+K000001GL1 Huxley Aldous 2011 0 Nowy Wspanialy Swiat
+C000004GL1 Twenty One Pilots 2018 1 Trench
+C000003GL1 Bastille 2013 1 Bad blood
+C000002GL1 Thirty Seconds To Mars 2018 1 America
+C000001GL1 Twenty One Pilots 2015 0 Blurryface
+F000004GL1 Robert Zemeckis 1994 1 Forrest Gump
+F000003GL1 Luc Besson 1994 1 Leon Zawodowiec
+F000002GL1 Quentin Tarantino 1994 0 Pulp Fiction
+F000001GL1 Neill Blomkamp 2015 1 Chappie
