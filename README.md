@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # System w bibliotece
 Projekt PK3 - programowanie obiektowe w C++
 =======
@@ -10,7 +10,7 @@ Założenia projektu:
 - program służy do zarządzania zasobami konkretnej filii biblioteki;
 - wypożyczenia zasobów przebiegają między użytkownikami a biblioteką oraz między filiami bibliotek;
 - jeśli książka nie zostanie zwrócona w odpowiednim terminie przez użytkownika, zostanie naliczona opłata.
--
+
 Funkcjonalności oferowane przez program:
 - możliwość wypożyczania zasobów użytkownikom/ bibliotekom;
 - możliwość wypożyczania zasobów z innej filii;
@@ -36,5 +36,3 @@ Zagadnienia wykorzystane w projekcie:
 
 
 ![image](https://user-images.githubusercontent.com/56382779/114385703-9efe6480-9b90-11eb-90eb-acca2939588b.png)
-
->>>>>>> 40c87b5580463042385708c6607756daf9d6ac82
