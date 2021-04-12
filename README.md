@@ -10,6 +10,8 @@ Założenia projektu:
 Funkcjonalności oferowane przez program:
 - możliwość wypożyczania zasobów użytkownikom/ bibliotekom;
 - możliwość wypożyczania zasobów z innej filii;
+- dodawanie/ usuwanie użytkowników biblioteki;
+- dodawanie/ usuwanie zasobów biblioteki;
 - naliczanie opłat w przypadku przekroczenia terminu oddania;
 - przeglądanie, przeszukiwanie bazy zasobów;
 - przeglądanie, przeszukiwanie bazy użytkowników;
@@ -23,7 +25,11 @@ Zagadnienia wykorzystane w projekcie:
 - polimorfizm;
 - operatory przeciążone;
 - strumienie/pliki;
-- dynamiczna alokacja pamięci, własnoręcznie zaimplementowana dynamiczna struktura danych/
+- dynamiczna alokacja pamięci, własnoręcznie zaimplementowana dynamiczna struktura danych.
 
 
 ![image](https://user-images.githubusercontent.com/56382779/114385320-2d261b00-9b90-11eb-8471-1b2f7d840426.png)
+
+
+![image](https://user-images.githubusercontent.com/56382779/114385703-9efe6480-9b90-11eb-90eb-acca2939588b.png)
+
