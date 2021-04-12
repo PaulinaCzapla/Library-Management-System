@@ -24,3 +24,6 @@ Zagadnienia wykorzystane w projekcie:
 - operatory przeciążone;
 - strumienie/pliki;
 - dynamiczna alokacja pamięci, własnoręcznie zaimplementowana dynamiczna struktura danych/
+
+
+![image](https://user-images.githubusercontent.com/56382779/114385320-2d261b00-9b90-11eb-8471-1b2f7d840426.png)
