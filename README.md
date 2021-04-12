@@ -1,6 +1,6 @@
 
 # System w bibliotece
-Projekt PK3 - programowanie obiektowe w C++
+Projekt - programowanie obiektowe w C++
 =======
 System w bibliotece to projekt zrealizowany przy wykorzystaniu założeń programowania obiektowego w języku C++.
 Jest to program zrealizowany w konsoli.
