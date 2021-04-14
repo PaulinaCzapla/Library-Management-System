@@ -4,7 +4,7 @@
 Library Management System is a console program carried out using the assumptions of object-oriented programming in C++. 
 
 
-Project assumptions:
+**Project assumptions:**
 
 - the library's resources are books, CDs and movies;
 - the program is used to manage the resources of a specific library branch;
@@ -12,7 +12,7 @@ Project assumptions:
 - if the resource is not returned by the user on time, a fee will be charged;
 - amount of the fee depends on the delay.
 
-Functionalities offered by the program:
+**Functionalities offered by the program:**
 - borrowing resources to users/ other libraries;
 - borrowing resources from another library branches;
 - adding/ removing library users;
@@ -24,7 +24,7 @@ Functionalities offered by the program:
 - protection against incorrect data.
 
 
-Issues used in the project:
+**Issues used in the project:**
 - classes;
 - inheritance;
 - polymorphism;
@@ -37,7 +37,7 @@ Issues used in the project:
 
 
 # System w bibliotece
-Projekt - programowanie obiektowe w C++
+## Projekt - programowanie obiektowe w C++
 =======
 System w bibliotece to projekt zrealizowany przy wykorzystaniu założeń programowania obiektowego w języku C++.
 Jest to program zrealizowany w konsoli.
